@@ -220,38 +220,6 @@ local function unlock_group_links(msg, data, target)
   end
 end
 
-local function lock_group_badword(msg, data, target)
-  if not is_momod(msg) then
-    return
-  end
-  local group_badword_lock = data[tostring(target)]['settings']['lock_badword']
-  if group_badword_lock == '✅' then
-    local text = 'badword posting is already locked'
-	return reply_msg(msg.id, text, ok_cb, false)
-  else
-    data[tostring(target)]['settings']['lock_badword'] = '✅'
-    save_data(_config.moderation.data, data)
-    local text = 'badword posting has been locked'
-	return reply_msg(msg.id, text, ok_cb, false)
-  end
-end
-
-local function unlock_group_badword(msg, data, target)
-  if not is_momod(msg) then
-    return
-  end
-  local group_badword_lock = data[tostring(target)]['settings']['lock_badword']
-  if group_badword_lock == '❌' then
-    local text = 'badword posting is not locked'
-	return reply_msg(msg.id, text, ok_cb, false)
-  else
-    data[tostring(target)]['settings']['lock_badword'] = '❌'
-    save_data(_config.moderation.data, data)
-    local text = 'badword posting has been unlocked'
-	return reply_msg(msg.id, text, ok_cb, false)
-  end
-end
-
 local function lock_group_number(msg, data, target)
   if not is_momod(msg) then
     return
@@ -959,8 +927,8 @@ function show_supergroup_settingsmod(msg, target)
 		if not data[tostring(target)]['settings']['lock_rtl'] then
 			data[tostring(target)]['settings']['lock_rtl'] = '❌'
 		end
-	end
-    if data[tostring(target)]['settings'] then
+end
+      if data[tostring(target)]['settings'] then
 		if not data[tostring(target)]['settings']['lock_tgservice'] then
 			data[tostring(target)]['settings']['lock_tgservice'] = '❌'
 		end
@@ -971,41 +939,36 @@ function show_supergroup_settingsmod(msg, target)
 		end
 	end
 	if data[tostring(target)]['settings'] then
-		if not data[tostring(target)]['settings']['lock_badword'] then
-			data[tostring(target)]['settings']['lock_badword'] = '❌'
-		end
-	end
-	if data[tostring(target)]['settings'] then
 		if not data[tostring(target)]['settings']['lock_tags'] then
 			data[tostring(target)]['settings']['lock_tags'] = '❌'
 		end
-	end
-	if data[tostring(target)]['settings'] then
+end
+if data[tostring(target)]['settings'] then
 		if not data[tostring(target)]['settings']['lock_join'] then
 			data[tostring(target)]['settings']['lock_join'] = '❌'
 		end
-	end
-	if data[tostring(target)]['settings'] then
-		if not data[tostring(target)]['settings']['lock_operator'] then
-			data[tostring(target)]['settings']['lock_operator'] = '❌'
-		end
-	end
-	if data[tostring(target)]['settings'] then
-		if not data[tostring(target)]['settings']['lock_reply'] then
-			data[tostring(target)]['settings']['lock_reply'] = '❌'
-		end
-	end
-	if data[tostring(target)]['settings'] then
-		if not data[tostring(target)]['settings']['lock_fwd'] then
-			data[tostring(target)]['settings']['lock_fwd'] = '❌'
-		end
-	end
-	if data[tostring(target)]['settings'] then
+end
+if data[tostring(target)]['settings'] then
 		if not data[tostring(target)]['settings']['lock_number'] then
 			data[tostring(target)]['settings']['lock_number'] = '❌'
 		end
-	end
-    if data[tostring(target)]['settings'] then
+end
+if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_operator'] then
+			data[tostring(target)]['settings']['lock_operator'] = '❌'
+		end
+end
+if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_reply'] then
+			data[tostring(target)]['settings']['lock_reply'] = '❌'
+		end
+end
+if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_fwd'] then
+			data[tostring(target)]['settings']['lock_fwd'] = '❌'
+		end
+end
+      if data[tostring(target)]['settings'] then
 		if not data[tostring(target)]['settings']['lock_emoji'] then
 			data[tostring(target)]['settings']['lock_emoji'] = '❌'
 		end
@@ -1021,7 +984,7 @@ function show_supergroup_settingsmod(msg, target)
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "SuperGroup settings:\n____________________\n》Lock links : "..settings.lock_link.."\n》Lock flood: "..settings.flood.."\n》Lock spam: "..settings.lock_spam.."\n》Lock Tags : "..settings.lock_tags.."\n》Lock Reply : "..settings.lock_reply.."\n》Lock Forward : "..settings.lock_fwd.."\n》Lock Join : "..settings.lock_join.."\n》Lock Emoji: "..settings.lock_emoji.."\n》Lock Username : "..settings.lock_username.."\n》Lock Media: "..settings.lock_media.."\n》Lock Bots: "..settings.lock_bots.."\n》Lock Arabic: "..settings.lock_arabic.."\n》Lock Member: "..settings.lock_member.."\n》Lock RTL: "..settings.lock_rtl.."\n》Lock Tgservice : "..settings.lock_tgservice.."\n》Lock sticker: "..settings.lock_sticker.."\n》Lock Operator: "..settings.lock_operator.."\n》Lock Number: "..settings.number.."\n》Lock Badword: "..settings.badword.."\n_____more settings_____\n》Flood sensitivity : "..NUM_MSG_MAX.."\n》Public: "..settings.public.."\n》Strict settings: "..settings.strict.."\n____________________\nBy >>DRAGON<<\nAll rights reserved"
+  local text = "SuperGroup settings:\n____________________\n》Lock links : "..settings.lock_link.."\n》Lock flood: "..settings.flood.."\n》Lock spam: "..settings.lock_spam.."\n》Lock Tags : "..settings.lock_tags.."\n》Lock Reply : "..settings.lock_reply.."\n》Lock Forward : "..settings.lock_fwd.."\n》Lock Join : "..settings.lock_join.."\n》Lock Emoji: "..settings.lock_emoji.."\n》Lock Username : "..settings.lock_username.."\n》Lock Media: "..settings.lock_media.."\n》Lock Bots: "..settings.lock_bots.."\n》Lock Arabic: "..settings.lock_arabic.."\n》Lock Member: "..settings.lock_member.."\n》Lock RTL: "..settings.lock_rtl.."\n》Lock Tgservice : "..settings.lock_tgservice.."\n》Lock sticker: "..settings.lock_sticker.."\n》Lock Operator: "..settings.lock_operator.."\n》Lock Number: "..settings.lock_number.."\n_____more settings_____\n》Flood sensitivity : "..NUM_MSG_MAX.."\n》Public: "..settings.public.."\n》Strict settings: "..settings.strict.."\n____________________\nBy >>DRAGON<<\nAll rights reserved"
   return reply_msg(msg.id, text, ok_cb, false)
 end
 
@@ -2128,10 +2091,6 @@ local function run(msg, matches)
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked operator posting ")
 				return lock_group_operator(msg, data, target)
 			end
-			if matches[2] == 'badword' then
-				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked badword posting ")
-				return lock_group_badword(msg, data, target)
-			end
 			if matches[2] == 'number' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked number posting ")
 				return lock_group_number(msg, data, target)
@@ -2215,10 +2174,6 @@ local function run(msg, matches)
 			if matches[2] == 'operator' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked operator posting")
 				return unlock_group_operator(msg, data, target)
-			end
-			if matches[2] == 'badword' then
-				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked badword posting")
-				return unlock_group_badword(msg, data, target)
 			end
 			if matches[2] == 'number' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked number posting")
