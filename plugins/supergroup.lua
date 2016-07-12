@@ -220,6 +220,38 @@ local function unlock_group_links(msg, data, target)
   end
 end
 
+local function lock_group_english(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_english_lock = data[tostring(target)]['settings']['lock_english']
+  if group_english_lock == '✅' then
+    local text = 'english posting is already locked'
+	return reply_msg(msg.id, text, ok_cb, false)
+  else
+    data[tostring(target)]['settings']['lock_english'] = '✅'
+    save_data(_config.moderation.data, data)
+    local text = 'english posting has been locked'
+	return reply_msg(msg.id, text, ok_cb, false)
+  end
+end
+
+local function unlock_group_english(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_english_lock = data[tostring(target)]['settings']['lock_english']
+  if group_english_lock == '❌' then
+    local text = 'english posting is not locked'
+	return reply_msg(msg.id, text, ok_cb, false)
+  else
+    data[tostring(target)]['settings']['lock_english'] = '❌'
+    save_data(_config.moderation.data, data)
+    local text = 'english posting has been unlocked'
+	return reply_msg(msg.id, text, ok_cb, false)
+  end
+end
+
 local function lock_group_badword(msg, data, target)
   if not is_momod(msg) then
     return
@@ -981,6 +1013,11 @@ if data[tostring(target)]['settings'] then
 		end
 end
 if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_english'] then
+			data[tostring(target)]['settings']['lock_english'] = '❌'
+		end
+end
+if data[tostring(target)]['settings'] then
 		if not data[tostring(target)]['settings']['lock_badword'] then
 			data[tostring(target)]['settings']['lock_badword'] = '❌'
 		end
@@ -1021,7 +1058,7 @@ end
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "SuperGroup settings:\n____________________\n》Lock links : "..settings.lock_link.."\n》Lock flood: "..settings.flood.."\n》Lock spam: "..settings.lock_spam.."\n》Lock Tags : "..settings.lock_tags.."\n》Lock Reply : "..settings.lock_reply.."\n》Lock Forward : "..settings.lock_fwd.."\n》Lock Join : "..settings.lock_join.."\n》Lock Emoji: "..settings.lock_emoji.."\n》Lock Username : "..settings.lock_username.."\n》Lock Media: "..settings.lock_media.."\n》Lock Bots: "..settings.lock_bots.."\n》Lock Arabic: "..settings.lock_arabic.."\n》Lock Member: "..settings.lock_member.."\n》Lock RTL: "..settings.lock_rtl.."\n》Lock Tgservice : "..settings.lock_tgservice.."\n》Lock sticker: "..settings.lock_sticker.."\n》Lock Operator: "..settings.lock_operator.."\n》Lock Number: "..settings.lock_number.."\n》Lock Badword: "..settings.lock_badword.."\n_____more settings_____\n》Flood sensitivity : "..NUM_MSG_MAX.."\n》Public: "..settings.public.."\n》Strict settings: "..settings.strict.."\n____________________\nBy >>DRAGON<<\nAll rights reserved"
+  local text = "SuperGroup settings:\n____________________\n》Lock links : "..settings.lock_link.."\n》Lock flood: "..settings.flood.."\n》Lock spam: "..settings.lock_spam.."\n》Lock Tags : "..settings.lock_tags.."\n》Lock Reply : "..settings.lock_reply.."\n》Lock Forward : "..settings.lock_fwd.."\n》Lock Join : "..settings.lock_join.."\n》Lock Emoji: "..settings.lock_emoji.."\n》Lock Username : "..settings.lock_username.."\n》Lock Media: "..settings.lock_media.."\n》Lock Bots: "..settings.lock_bots.."\n》Lock Arabic: "..settings.lock_arabic.."\n》Lock Member: "..settings.lock_member.."\n》Lock RTL: "..settings.lock_rtl.."\n》Lock English: "..settings.lock_english.."\n》Lock Tgservice : "..settings.lock_tgservice.."\n》Lock sticker: "..settings.lock_sticker.."\n》Lock Operator: "..settings.lock_operator.."\n》Lock Number: "..settings.lock_number.."\n》Lock Badword: "..settings.lock_badword.."\n_____more settings_____\n》Flood sensitivity : "..NUM_MSG_MAX.."\n》Public: "..settings.public.."\n》Strict settings: "..settings.strict.."\n____________________\nBy >>DRAGON<<\nAll rights reserved"
   return reply_msg(msg.id, text, ok_cb, false)
 end
 
@@ -2184,6 +2221,10 @@ local function run(msg, matches)
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked rtl chars. in names")
 				return lock_group_rtl(msg, data, target)
 			end
+			if matches[2]:lower() == 'english' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked english chars. in names")
+				return lock_group_english(msg, data, target)
+			end
 			if matches[2] == 'tgservice' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked Tgservice Actions")
 				return lock_group_tgservice(msg, data, target)
@@ -2271,6 +2312,10 @@ local function run(msg, matches)
 			if matches[2]:lower() == 'rtl' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked RTL chars. in names")
 				return unlock_group_rtl(msg, data, target)
+			end
+			if matches[2]:lower() == 'english' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked english chars. in names")
+				return unlock_group_english(msg, data, target)
 			end
 				if matches[2] == 'tgservice' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked tgservice actions")

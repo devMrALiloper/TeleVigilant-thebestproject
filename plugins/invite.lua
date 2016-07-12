@@ -24,7 +24,7 @@ function run(msg, matches)
 		return 'Only admins can invite.'
   end
   if not is_realm(msg) then
-    if data[tostring(msg.to.id)]['settings']['lock_member'] == 'yes' and not is_admin1(msg) then
+    if data[tostring(msg.to.id)]['settings']['lock_member'] == '✅' and not is_admin1(msg) then
 		  return 'Group is private.'
     end
   end
