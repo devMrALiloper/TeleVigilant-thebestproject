@@ -238,6 +238,7 @@ function create_config( )
     "lock_number",
     "lock_operator",
     "lock_tags",
+    "lock_english",
     "lock_username",
     "lock_media",
     "lock_emoji",
