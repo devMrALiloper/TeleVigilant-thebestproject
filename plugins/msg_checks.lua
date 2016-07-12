@@ -18,6 +18,21 @@ if is_chat_msg(msg) or is_super_group(msg) then
 	else
 		lock_arabic = '❌'
 	end
+	if settings.lock_username then
+		lock_username = settings.lock_arabic
+	else
+		lock_username = '❌'
+	end
+	if settings.lock_tags then
+		lock_tags = settings.lock_tags
+	else
+		lock_tags = '❌'
+	end
+	if settings.lock_number then
+		lock_number = settings.lock_number
+	else
+		lock_number = '❌'
+	end
 	if settings.lock_rtl then
 		lock_rtl = settings.lock_rtl
 	else
@@ -121,6 +136,18 @@ if is_chat_msg(msg) or is_super_group(msg) then
 						kick_user(msg.from.id, msg.to.id)
 					end
 				end
+				local is_username_title = msg.media.title:match("@") or msg.media.title:match("@(.*)")
+				if is_username_title and lock_username == "✅" then
+					delete_msg(msg.id, ok_cb, false)
+				end
+				local is_tags_title = msg.media.title:match("#") or msg.media.title:match("#(.*)")
+				if is_tags_title and lock_tags == "✅" then
+					delete_msg(msg.id, ok_cb, false)
+				end
+				local is_number_title = msg.media.title:match("[0123456789]") or msg.media.title:match("[0123456789](.*)")
+				if is_number_title and lock_number == "✅" then
+					delete_msg(msg.id, ok_cb, false)
+				end
 				local is_squig_title = msg.media.title:match("[\216-\219][\128-\191]")
 				if is_squig_title and lock_arabic == "✅" then
 					delete_msg(msg.id, ok_cb, false)
@@ -137,6 +164,18 @@ if is_chat_msg(msg) or is_super_group(msg) then
 						kick_user(msg.from.id, msg.to.id)
 					end
 				end
+				local is_username_desc = msg.media.description:match("@") or msg.media.description:match("@(.*)")
+				if is_username_desc and lock_username == "✅" then
+					delete_msg(msg.id, ok_cb, false)
+				end
+				local is_tags_desc = msg.media.description:match("#") or msg.media.description:match("#(.*)")
+				if is_tags_desc and lock_tags == "✅" then
+					delete_msg(msg.id, ok_cb, false)
+				end
+				local is_number_desc = msg.media.description:match("[0123456789]") or msg.media.description:match("[0123456789](.*)")
+				if is_number_desc and lock_number == "✅" then
+					delete_msg(msg.id, ok_cb, false)
+				end
 				local is_squig_desc = msg.media.description:match("[\216-\219][\128-\191]")
 				if is_squig_desc and lock_arabic == "✅" then
 					delete_msg(msg.id, ok_cb, false)
@@ -152,6 +191,18 @@ if is_chat_msg(msg) or is_super_group(msg) then
 					if strict == "✅" or to_chat then
 						kick_user(msg.from.id, msg.to.id)
 					end
+				end
+				local is_username_caption = msg.media.caption:match("@") or msg.media.caption:match("@(.*)")
+				if is_username_caption and lock_link == "✅" then
+					delete_msg(msg.id, ok_cb, false)
+				end
+				local is_tags_caption = msg.media.caption:match("#") or msg.media.caption:match("#(.*)")
+				if is_tags_caption and lock_tags == "✅" then
+					delete_msg(msg.id, ok_cb, false)
+				end
+				local is_number_caption = msg.media.caption:match("[0123456789]") or msg.media.caption:match("[0123456789](.*)")
+				if is_number_caption and lock_number == "✅" then
+					delete_msg(msg.id, ok_cb, false)
 				end
 				local is_squig_caption = msg.media.caption:match("[\216-\219][\128-\191]")
 					if is_squig_caption and lock_arabic == "✅" then
@@ -222,6 +273,18 @@ if is_chat_msg(msg) or is_super_group(msg) then
 					if strict == "✅" or to_chat then
 						kick_user(msg.from.id, msg.to.id)
 					end
+				end
+				local is_username_title = msg.fwd_from.title:match("@") or msg.fwd_from.title:match("@(.*)")
+				if is_username_title and lock_username == "✅" then
+					delete_msg(msg.id, ok_cb, false)
+				end
+				local is_tags_title = msg.fwd_from.title:match("#") or msg.fwd_from.title:match("#(.*)")
+				if is_tags_title and lock_tags == "✅" then
+					delete_msg(msg.id, ok_cb, false)
+				end
+				local is_number_title = msg.fwd_from.title:match("[0123456789]") or msg.fwd_from.title:match("[0123456789](.*)")
+				if is_number_title and lock_number == "✅" then
+					delete_msg(msg.id, ok_cb, false)
 				end
 				local is_squig_title = msg.fwd_from.title:match("[\216-\219][\128-\191]")
 				if is_squig_title and lock_arabic == "✅" then
