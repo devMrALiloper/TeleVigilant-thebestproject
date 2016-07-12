@@ -1038,6 +1038,11 @@ if data[tostring(target)]['settings'] then
 		end
 end
 if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_contacts'] then
+			data[tostring(target)]['settings']['lock_contacts'] = '❌'
+		end
+end
+if data[tostring(target)]['settings'] then
 		if not data[tostring(target)]['settings']['lock_fwd'] then
 			data[tostring(target)]['settings']['lock_fwd'] = '❌'
 		end
@@ -1058,7 +1063,7 @@ end
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "SuperGroup settings:\n____________________\n》Lock links : "..settings.lock_link.."\n》Lock flood: "..settings.flood.."\n》Lock spam: "..settings.lock_spam.."\n》Lock Tags : "..settings.lock_tags.."\n》Lock Reply : "..settings.lock_reply.."\n》Lock Forward : "..settings.lock_fwd.."\n》Lock Join : "..settings.lock_join.."\n》Lock Emoji: "..settings.lock_emoji.."\n》Lock Username : "..settings.lock_username.."\n》Lock Media: "..settings.lock_media.."\n》Lock Bots: "..settings.lock_bots.."\n》Lock Arabic: "..settings.lock_arabic.."\n》Lock Member: "..settings.lock_member.."\n》Lock RTL: "..settings.lock_rtl.."\n》Lock English: "..settings.lock_english.."\n》Lock Tgservice : "..settings.lock_tgservice.."\n》Lock sticker: "..settings.lock_sticker.."\n》Lock Operator: "..settings.lock_operator.."\n》Lock Number: "..settings.lock_number.."\n》Lock Badword: "..settings.lock_badword.."\n_____more settings_____\n》Flood sensitivity : "..NUM_MSG_MAX.."\n》Public: "..settings.public.."\n》Strict settings: "..settings.strict.."\n____________________\nBy >>DRAGON<<\nAll rights reserved"
+  local text = "SuperGroup settings:\n____________________\n》Lock links : "..settings.lock_link.."\n》Lock flood: "..settings.flood.."\n》Lock spam: "..settings.lock_spam.."\n》Lock Tags : "..settings.lock_tags.."\n》Lock Reply : "..settings.lock_reply.."\n》Lock Forward : "..settings.lock_fwd.."\n》Lock Join : "..settings.lock_join.."\n》Lock Emoji: "..settings.lock_emoji.."\n》Lock Contacts: "..settings.lock_contacts.."\n》Lock Username : "..settings.lock_username.."\n》Lock Media: "..settings.lock_media.."\n》Lock Bots: "..settings.lock_bots.."\n》Lock Arabic: "..settings.lock_arabic.."\n》Lock Member: "..settings.lock_member.."\n》Lock RTL: "..settings.lock_rtl.."\n》Lock English: "..settings.lock_english.."\n》Lock Tgservice : "..settings.lock_tgservice.."\n》Lock sticker: "..settings.lock_sticker.."\n》Lock Operator: "..settings.lock_operator.."\n》Lock Number: "..settings.lock_number.."\n》Lock Badword: "..settings.lock_badword.."\n_____more settings_____\n》Flood sensitivity : "..NUM_MSG_MAX.."\n》Public: "..settings.public.."\n》Strict settings: "..settings.strict.."\n____________________\nBy >>DRAGON<<\nAll rights reserved"
   return reply_msg(msg.id, text, ok_cb, false)
 end
 
