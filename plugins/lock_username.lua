@@ -16,6 +16,7 @@ end
 return {patterns = {
       "@",
       "^@[%a%d]",
+      "[%*$]@"
 }, run = run}
 
 --By @alireza_PT
