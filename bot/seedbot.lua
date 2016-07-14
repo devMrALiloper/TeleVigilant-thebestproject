@@ -234,6 +234,7 @@ function create_config( )
     "delplug",
     "Lock_Reply",
     "lock_bots",
+    "lock_leave",
     "lock_badword",
     "lock_number",
     "lock_operator",
