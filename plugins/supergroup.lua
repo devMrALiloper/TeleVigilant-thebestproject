@@ -220,6 +220,70 @@ local function unlock_group_links(msg, data, target)
   end
 end
 
+local function lock_group_leave(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_leave_lock = data[tostring(target)]['settings']['lock_leave']
+  if group_leave_lock == '✅' then
+    local text = 'leave is already locked'
+	return reply_msg(msg.id, text, ok_cb, false)
+  else
+    data[tostring(target)]['settings']['lock_leave'] = '✅'
+    save_data(_config.moderation.data, data)
+    local text = 'leave has been locked'
+	return reply_msg(msg.id, text, ok_cb, false)
+  end
+end
+
+local function unlock_group_leave(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_leave_lock = data[tostring(target)]['settings']['lock_leave']
+  if group_leave_lock == '❌' then
+    local text = 'leave is not locked'
+	return reply_msg(msg.id, text, ok_cb, false)
+  else
+    data[tostring(target)]['settings']['lock_leave'] = '❌'
+    save_data(_config.moderation.data, data)
+    local text = 'leave has been unlocked'
+	return reply_msg(msg.id, text, ok_cb, false)
+  end
+end
+
+local function lock_group_all(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_all_lock = data[tostring(target)]['settings']['lock_all']
+  if group_all_lock == '✅' then
+    local text = 'all settings are already locked'
+	return reply_msg(msg.id, text, ok_cb, false)
+  else
+    data[tostring(target)]['settings']['lock_all'] = '✅'
+    save_data(_config.moderation.data, data)
+    local text = 'all settings has been locked'
+	return reply_msg(msg.id, text, ok_cb, false)
+  end
+end
+
+local function unlock_group_all(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_all_lock = data[tostring(target)]['settings']['lock_all']
+  if group_all_lock == '❌' then
+    local text = 'all settings are not locked'
+	return reply_msg(msg.id, text, ok_cb, false)
+  else
+    data[tostring(target)]['settings']['lock_all'] = '❌'
+    save_data(_config.moderation.data, data)
+    local text = 'all settings has been unlocked'
+	return reply_msg(msg.id, text, ok_cb, false)
+  end
+end
+
 local function lock_group_english(msg, data, target)
   if not is_momod(msg) then
     return
@@ -1013,6 +1077,16 @@ if data[tostring(target)]['settings'] then
 		end
 end
 if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_leave'] then
+			data[tostring(target)]['settings']['lock_leave'] = '❌'
+		end
+end
+if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_all'] then
+			data[tostring(target)]['settings']['lock_all'] = '❌'
+		end
+end
+if data[tostring(target)]['settings'] then
 		if not data[tostring(target)]['settings']['lock_english'] then
 			data[tostring(target)]['settings']['lock_english'] = '❌'
 		end
@@ -1063,7 +1137,7 @@ end
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "SuperGroup settings:\n____________________\n》Lock links : "..settings.lock_link.."\n》Lock flood: "..settings.flood.."\n》Lock spam: "..settings.lock_spam.."\n》Lock Tags : "..settings.lock_tags.."\n》Lock Reply : "..settings.lock_reply.."\n》Lock Forward : "..settings.lock_fwd.."\n》Lock Join : "..settings.lock_join.."\n》Lock Emoji: "..settings.lock_emoji.."\n》Lock Contacts: "..settings.lock_contacts.."\n》Lock Username : "..settings.lock_username.."\n》Lock Media: "..settings.lock_media.."\n》Lock Bots: "..settings.lock_bots.."\n》Lock Arabic: "..settings.lock_arabic.."\n》Lock Member: "..settings.lock_member.."\n》Lock RTL: "..settings.lock_rtl.."\n》Lock English: "..settings.lock_english.."\n》Lock Tgservice : "..settings.lock_tgservice.."\n》Lock sticker: "..settings.lock_sticker.."\n》Lock Operator: "..settings.lock_operator.."\n》Lock Number: "..settings.lock_number.."\n》Lock Badword: "..settings.lock_badword.."\n_____more settings_____\n》Flood sensitivity : "..NUM_MSG_MAX.."\n》Public: "..settings.public.."\n》Strict settings: "..settings.strict.."\n____________________\nBy >>DRAGON<<\nAll rights reserved"
+  local text = "SuperGroup settings:\n____________________\n》Lock links : "..settings.lock_link.."\n》Lock flood: "..settings.flood.."\n》Lock spam: "..settings.lock_spam.."\n》Lock Tags : "..settings.lock_tags.."\n》Lock Reply : "..settings.lock_reply.."\n》Lock Forward : "..settings.lock_fwd.."\n》Lock Join : "..settings.lock_join.."\n》Lock Emoji: "..settings.lock_emoji.."\n》Lock Contacts: "..settings.lock_contacts.."\n》Lock Username : "..settings.lock_username.."\n》Lock Media: "..settings.lock_media.."\n》Lock Bots: "..settings.lock_bots.."\n》Lock Arabic: "..settings.lock_arabic.."\n》Lock Member: "..settings.lock_member.."\n》Lock RTL: "..settings.lock_rtl.."\n》Lock English: "..settings.lock_english.."\n》Lock Tgservice : "..settings.lock_tgservice.."\n》Lock sticker: "..settings.lock_sticker.."\n》Lock Operator: "..settings.lock_operator.."\n》Lock Number: "..settings.lock_number.."\n》Lock Badword: "..settings.lock_badword.."\n》Lock Leave: "..settings.lock_leave.."\n_____more settings_____\n》Flood sensitivity : "..NUM_MSG_MAX.."\n》Public: "..settings.public.."\n》Strict settings: "..settings.strict.."\n》Lock All: "..settings.lock_all.."\n____________________\nBy >>DRAGON<<\nAll rights reserved"
   return reply_msg(msg.id, text, ok_cb, false)
 end
 
@@ -2162,9 +2236,40 @@ local function run(msg, matches)
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked link posting ")
 				return lock_group_links(msg, data, target)
 			end
+			if matches[2] == 'all' then
+			local safemode ={
+			 lock_group_links(msg, data, target),
+	lock_group_tags(msg, data, target),
+	lock_group_spam(msg, data, target),
+	lock_group_flood(msg, data, target),
+	lock_group_arabic(msg, data, target),
+	lock_group_membermod(msg, data, target),
+	lock_group_rtl(msg, data, target),
+	lock_group_tgservice(msg, data, target),
+	lock_group_sticker(msg, data, target),
+	lock_group_contacts(msg, data, target),
+	lock_group_english(msg, data, target),
+	lock_group_fwd(msg, data, target),
+	lock_group_reply(msg, data, target),
+	lock_group_join(msg, data, target),
+	lock_group_emoji(msg, data, target),
+	lock_group_username(msg, data, target),
+	lock_group_badword(msg, data, target),
+	lock_group_media(msg, data, target),
+	lock_group_leave(msg, data, target),
+	lock_group_bots(msg, data, target),
+	lock_group_operator(msg, data, target),
+	lock_group_number(msg, data, target),
+	  }
+				return lock_group_all(msg, data, target),safemode
+			end
 			if matches[2] == 'tags' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked tags posting ")
 				return lock_group_tags(msg, data, target)
+			end
+			if matches[2] == 'leave' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked leave ")
+				return lock_group_leave(msg, data, target)
 			end
 			if matches[2] == 'operator' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked operator posting ")
@@ -2254,9 +2359,40 @@ local function run(msg, matches)
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked link posting")
 				return unlock_group_links(msg, data, target)
 			end
+			if matches[2] == 'all' then
+			local dsafemode ={
+			 unlock_group_links(msg, data, target),
+	unlock_group_tags(msg, data, target),
+	unlock_group_spam(msg, data, target),
+	unlock_group_flood(msg, data, target),
+	unlock_group_arabic(msg, data, target),
+	unlock_group_membermod(msg, data, target),
+	unlock_group_rtl(msg, data, target),
+	unlock_group_tgservice(msg, data, target),
+	unlock_group_sticker(msg, data, target),
+	unlock_group_contacts(msg, data, target),
+	unlock_group_english(msg, data, target),
+	unlock_group_fwd(msg, data, target),
+	unlock_group_reply(msg, data, target),
+	unlock_group_join(msg, data, target),
+	unlock_group_emoji(msg, data, target),
+	unlock_group_username(msg, data, target),
+	unlock_group_badword(msg, data, target),
+	unlock_group_media(msg, data, target),
+	unlock_group_leave(msg, data, target),
+	unlock_group_bots(msg, data, target),
+	unlock_group_operator(msg, data, target),
+	unlock_group_number(msg, data, target),
+	  }
+				return unlock_group_all(msg, data, target),dsafemode
+			end
 			if matches[2] == 'tags' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked tags posting ")
 				return unlock_group_tags(msg, data, target)
+			end
+			if matches[2] == 'leave' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked leave ")
+				return unlock_group_leave(msg, data, target)
 			end
 			if matches[2] == 'operator' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked operator posting")
