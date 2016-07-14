@@ -8,7 +8,7 @@ local function run(msg)
 if msg.to.type == 'channel' and not is_momod(msg) then
 	ban_user(msg.from.id, msg.to.id)
 
-        return 'user banned'
+        return
       end
    end
 end
