@@ -2261,7 +2261,7 @@ local function run(msg, matches)
 	lock_group_operator(msg, data, target),
 	lock_group_number(msg, data, target),
 	  }
-				return lock_group_all(msg, data, target),safemode
+				return lock_group_all(msg, data, target), safemode
 			end
 			if matches[2] == 'tags' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked tags posting ")
@@ -2384,7 +2384,7 @@ local function run(msg, matches)
 	unlock_group_operator(msg, data, target),
 	unlock_group_number(msg, data, target),
 	  }
-				return unlock_group_all(msg, data, target),dsafemode
+				return unlock_group_all(msg, data, target), dsafemode
 			end
 			if matches[2] == 'tags' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked tags posting ")

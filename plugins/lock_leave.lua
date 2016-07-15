@@ -1,20 +1,26 @@
-local function run(msg)
-
-    local data = load_data(_config.moderation.data)
-
-     if data[tostring(msg.to.id)]['settings']['lock_leave'] == '✅' then
-
-
-if msg.to.type == 'channel' and not is_momod(msg) then
-	ban_user(msg.from.id, msg.to.id)
-	
-        return 'user banned'
-      end
-   end
+local function run(msg, matches)
+	local data = load_data(_config.moderation.data)
+	if msg.action and msg.action.type then
+	local action = msg.action.type 
+    if data[tostring(msg.to.id)] then
+		if data[tostring(msg.to.id)]['settings'] then
+			if data[tostring(msg.to.id)]['settings']['lock_leave'] then 
+				leave_ban = data[tostring(msg.to.id)]['settings']['lock_leave']
+			end
+		end
+    end
+	if action == 'chat_del_user' and not is_momod2(msg.action.user.id) and lock_leave == '✅' then
+			local user_id = msg.action.user.id
+			local chat_id = msg.to.id
+			ban_user(user_id, chat_id)
+		end
+	end
 end
 
-return {patterns = {
-      "^!!tgservice (chat_del_user)$"
-}, run = run}
 
---By DRAGON
+return {
+  patterns = {
+    "^!!tgservice (.*)$"
+  },
+  run = run
+}
