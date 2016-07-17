@@ -230,6 +230,7 @@ function create_config( )
     "welcome",
     "Bye",
     "sticker",
+    "photo",
     "saveplug",
     "show",
     "weather",
