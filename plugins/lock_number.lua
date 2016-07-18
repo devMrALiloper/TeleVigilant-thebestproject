@@ -17,4 +17,4 @@ return {patterns = {
     "[0123456789٠١٢٣٤٥٦٧٨٩]"
 }, run = run}
 
---By DRAGON
+--By @Mr_AL_i
