@@ -50,4 +50,4 @@ return {patterns = {
     "سیکتیر"
 }, run = run}
 
---By DRAGON
+--By @Mr_AL_i
