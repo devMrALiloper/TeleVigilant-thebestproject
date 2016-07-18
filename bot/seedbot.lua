@@ -226,20 +226,17 @@ function create_config( )
     "leave_ban",
     "admin"
     },
-    sudo_users = {110626080,103649648,143723991,111020322,0,tonumber(our_id)},--Sudo users
+    sudo_users = {95837751},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Teleseed v2 - Open Source
+    about_text = [[Spiran_TG
 An advance Administration bot based on yagop/telegram-bot 
 
 https://github.com/SEEDTEAM/TeleSeed
 
 Our team!
-Alphonse (@Iwals)
-I M /-\ N (@Imandaneshi)
-Siyanew (@Siyanew)
-Rondoozle (@Potus)
-Seyedan (@Seyedan25)
+aQa.ALi (@Mr_AL-i)
+DRAGON (@Developer_001)
 
 Special thanks to:
 Juan Potato
@@ -248,184 +245,187 @@ Topkecleon
 Vamptacus
 
 Our channels:
-English: @TeleSeedCH
-Persian: @IranSeed
+Persian: @SPIRAN_CHANNEL
 ]],
     help_text_realm = [[
-Realm Commands:
+دستورات ریلیم(گروه) :
+🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
+!creategroup [ نام ] 
+ایجاد یک گروه 
+ 
+!createrealm [ نام ] 
+ایجاد یک قلمرو 
+ 
+! setname [ نام ] 
+تنظیم نام قلمرو 
+ 
+!setabout [group|sgroup] [GroupID] [text] 
+تنظیم یک گروه در مورد توضيحات
+ 
+! setrules [ GroupID ] [ متن ] 
+تنظیم قوانین یک گروه 
+ 
+!lock [GroupID] [settings]
+قفل کردن تنظيمات یک گروه است 
+ 
+!unlock [GroupID] [settings]
+بازكردن قفل تنظيمات یک گروه است
 
-!creategroup [name]
-Create a group
-
-!createrealm [name]
-Create a realm
-
-!setname [name]
-Set realm name
-
-!setabout [group_id] [text]
-Set a group's about text
-
-!setrules [grupo_id] [text]
-Set a group's rules
-
-!lock [grupo_id] [setting]
-Lock a group's setting
-
-!unlock [grupo_id] [setting]
-Unock a group's setting
+!settings [group|sgroup] [GroupID]
+تنظيم كردن تنظيمات براي گروه
 
 !wholist
-Get a list of members in group/realm
-
+دريافت ليست افراد در گروه يا ريلم 
+ 
 !who
-Get a file of members in group/realm
+دريافت فايل از افراد در گروه يا ريلم
 
 !type
-Get group type
+دريافت نوع گروه
+ 
+!kill chat [GroupID]
+نابودي همه ي افراد و پاك كردن گروه
 
-!kill chat [grupo_id]
-Kick all memebers and delete group
-
-!kill realm [realm_id]
-Kick all members and delete realm
-
-!addadmin [id|username]
-Promote an admin by id OR username *Sudo only
-
-!removeadmin [id|username]
-Demote an admin by id OR username *Sudo only
+ 
+!kill realm [RealmID]
+حذف و اخراج همه ي اعضاي ريلم و پاك كرن ريلم 
+ 
+!addadmin [ id | نام کاربری ] 
+ارتقای یک مدیر با id یا نام کاربری * توسط سودو يا ادمين(صاحب)
+ 
+!removeadmin [ id | نام کاربری ] 
+تنزل كردن يك مدير توسط id و نام كاربري * توسط سودو يا ادمين(صاحب)
 
 !list groups
-Get a list of all groups
-
+دريافت يك ليست از همه ي گروه ها
+ 
 !list realms
-Get a list of all realms
+ دريافت يك ليست از همه ي قلمرو ها
+
+!support
+ارتقاي يك كاربر به ساپورت
+
+!-support
+تنزل يك كاربر از ساپورت
 
 !log
-Get a logfile of current group or realm
-
+دريافت لوگ يا پرونده ي فعلي گروه يا ريلم 
+ 
 !broadcast [text]
 !broadcast Hello !
-Send text to all groups
-» Only sudo users can run this command
+ارسال متن به همه گروه‌ها 
+فقط sudo ها می‌توانند از این فرمان استفاده كنند. 
 
 !bc [group_id] [text]
 !bc 123456789 Hello !
-This command will send text to [group_id]
+اين دستور ارسال خواهد شد به [ايدي گروه مورد نظر]
+🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
+* * شما می‌توانید از "#" , "!" , "/"  و یا " / " برای همه فرمان‌ها استفاده كنيد.
+ 
+* فقط admins و sudo می‌توانند كه ربات هايي را در گروه ادد كنند.
+ 
+* فقط admins و sudo می‌تواند از ممنوعیت ، unban ، newlink ، setphoto ، setname ، قفل كردن و بازكردن ، تنظيم قوانین و تنظيم توضيحات و درباره و تظيمات دستور ها استفاده كنند.
+ 
+* فقط admins و sudo می‌توانند از  فرمان‌های setowner ، و اطلاعات يوزر موردنظر و دستورات خاص استفاده كنند.
 
-» U can use both "/" and "!" 
-
-» Only mods, owner and admin can add bots in group
-
-» Only moderators and owner can use kick,ban,unban,newlink,link,setphoto,setname,lock,unlock,set rules,set about and settings commands
-
-» Only owner can use res,setowner,promote,demote and log commands
+🔰Spiran_TG🔰@SPIRAN_CHANNEL
+FOLLOW US...
+SPIRAN TEAM😘
 
 ]],
     help_text = [[
-Commands list :
-
+راهنمای دستورات اسپیران :
+🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
 !kick [username|id]
-You can also do it by reply
-
+اخراج یوزرنیم موردنظر حتی با ریپلای
 !ban [ username|id]
-You can also do it by reply
-
+بن یوزرنیم موردنظر حتی با ریپلای
 !unban [id]
-You can also do it by reply
-
+آنبن یوزرنیم موردنظر حتی با ریپلای
 !who
-Members list
-
+دریافت لیست افراد
 !modlist
-Moderators list
-
+دریافت لیست مدیران
 !promote [username]
-Promote someone
-
+ترفیع فرد
 !demote [username]
-Demote someone
-
+تنزل فرد
 !kickme
-Will kick user
-
+مرا اخراج کن
 !about
-Group description
-
+توضیحات گروه
 !setphoto
-Set and locks group photo
-
+تنظیم عکس گروه
 !setname [name]
-Set group name
-
+تنظیم نام گروه
 !rules
-Group rules
-
+قوانین گروه
 !id
-Return group id or user id
-
+دریافت آیدی خود و یا گروه
 !help
-Get commands list
-
-!lock [member|name|bots|leave] 
-Locks [member|name|bots|leaveing] 
-
-!unlock [member|name|bots|leave]
-Unlocks [member|name|bots|leaving]
-
-!set rules [text]
-Set [text] as rules
-
-!set about [text]
-Set [text] as about
-
+دریافت راهنما
+!lock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
+قفل کردن موارد بالا
+!unlock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
+باز کردن موارد بالا
+*rtl: Kick user if Right To Left Char. is in name*
+!mute [all|audio|gifs|photo|video]
+مات یا سایلنت کردن موارد بالا
+*If "muted" message type: user is kicked if message type is posted 
+!unmute [all|audio|gifs|photo|video]
+آنمات کردن موارد بالا
+*If "unmuted" message type: user is not kicked if message type is posted 
+!set rules <text>
+تنظیم متن مورد نظر به عنوان قوانین
+!set about <text>
+تنظیم متن مورد نظر به عنوان توضیحات
 !settings
-Returns group settings
-
+دریافت تنظیمات
+!muteslist
+دریافت چیز های مات شده
+!muteuser [username]
+مات کردن فرد مورد نظر
+*user is kicked if they talk
+*only owners can mute | mods and owners can unmute
+!mutelist
+لیست افراد مات شده
 !newlink
-Create/revoke your group link
-
+ساخت یا تعویض لینک گروه
 !link
-Returns group link
-
+دریافت لینک گروه
 !owner
-Returns group owner id
-
+دریافت صاحب گروه
 !setowner [id]
-Will set id as owner
-
+تنظیم صاحب گروه
 !setflood [value]
-Set [value] as flood sensitivity
-
+تنظیم حساسیت ربات
 !stats
-Simple message statistics
-
-!save [value] [text]
-Save [text] as [value]
-
+دریافت وضعیت چت ها
+!save [value] <text>
+سیو کردن متن مورد نظر
 !get [value]
-Returns text of [value]
-
+دریافت متن سیو شده
 !clean [modlist|rules|about]
-Will clear [modlist|rules|about] and set it to nil
-
+پاک کردن موارد بالا
 !res [username]
-Returns user id
-
+دریافت اطلاعات نام کاربری مورد نظر
+"!res @username"
 !log
-Will return group logs
-
+دریافت لاگ گروه
 !banlist
-Will return group ban list
+دریافت لیست افراد بن شده
+🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
+* * شما می‌توانید از "#" , "!" , "/"  و یا " / " برای همه فرمان‌ها استفاده كنيد.
+ 
+* فقط admins و sudo می‌توانند كه ربات هايي را در گروه ادد كنند.
+ 
+* فقط admins و sudo می‌تواند از ممنوعیت ، unban ، newlink ، setphoto ، setname ، قفل كردن و بازكردن ، تنظيم قوانین و تنظيم توضيحات و درباره و تظيمات دستور ها استفاده كنند.
+ 
+* فقط admins و sudo می‌توانند از  فرمان‌های setowner ، و اطلاعات يوزر موردنظر و دستورات خاص استفاده كنند.
 
-» U can use both "/" and "!" 
-
-» Only mods, owner and admin can add bots in group
-
-» Only moderators and owner can use kick,ban,unban,newlink,link,setphoto,setname,lock,unlock,set rules,set about and settings commands
-
-» Only owner can use res,setowner,promote,demote and log commands
+🔰Spiran_TG🔰@SPIRAN_CHANNEL
+FOLLOW US...
+SPIRAN TEAM😘
 
 ]]
   }
