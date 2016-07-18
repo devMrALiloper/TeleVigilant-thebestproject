@@ -1,6 +1,6 @@
 --[[
 
-        @cruel Ù†ÙˆÛŒØ³Ù†Ø¯Ù‡
+        @cruel äæíÓäÏå
 		@cruel_channel
 		@gpmod
 
@@ -19,7 +19,7 @@ local function view_sura(chat_id, target)
 		local text = f:read("*all")
 		return text
 	else
-		return 'Ù¾Ù„Ø§Ú¯ÛŒÙ† ÛŒØ§ÙØª Ù†Ø´Ø¯'
+		return 'áÇíä íÇİÊ äÔÏ'
 	end
 end
 
@@ -43,7 +43,7 @@ end
 
 --[[
 
-        @cruel Ù†ÙˆÛŒØ³Ù†Ø¯Ù‡
+        @cruel äæíÓäÏå
 		@cruel_channel
 		@gpmod
 
