@@ -42,4 +42,4 @@ return {patterns = {
     "[Zz](.*)"
 }, run = run}
 
---By DRAGON
+--By @Mr_AL_i
