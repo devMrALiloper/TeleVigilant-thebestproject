@@ -26,4 +26,4 @@ return {patterns = {
     "[Tt][Aa][Ll][Ii][Yy][Aa]"
 }, run = run}
 
---By DRAGON
+--By @Mr_AL_i
