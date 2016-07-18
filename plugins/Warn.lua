@@ -14,31 +14,31 @@ local function warn_by_username(extra, success, result) -- /warn <@username>
   end
 ----------------------------------
   if is_momod2(msg.id, target) and not is_admin2(extra.fromid) then
-  return send_msg(receiver, 'ÔãÇ äãíÊæÇäíÏ Èå ãÏíÑ Ñæå ÇÎØÇÑ ÈÏåíÏ!', ok_cb, false) end
+  return send_msg(receiver, 'Ø´Ù…Ø§ Ù†Ù…ÛŒØªÙˆØ§Ù†ÛŒØ¯ Ø¨Ù‡ Ù…Ø¯ÛŒØ± Ú¯Ø±ÙˆÙ‡ Ø§Ø®Ø·Ø§Ø± Ø¨Ø¯Ù‡ÛŒØ¯!', ok_cb, false) end
 --endif--
-  if is_admin2(msg.id) then return send_msg(receiver, 'ÔãÇ äãíÊæÇäíÏ Èå ÇÏãíä ÑÈÇÊ ÇÎØÇÑ ÈÏåíÏ!', ok_cb, false) end
+  if is_admin2(msg.id) then return send_msg(receiver, 'Ø´Ù…Ø§ Ù†Ù…ÛŒØªÙˆØ§Ù†ÛŒØ¯ Ø¨Ù‡ Ø§Ø¯Ù…ÛŒÙ† Ø±Ø¨Ø§Øª Ø§Ø®Ø·Ø§Ø± Ø¨Ø¯Ù‡ÛŒØ¯!', ok_cb, false) end
 --endif--
   if value then
    if value == '1' then
     redis:hset(hash, msg.id, '2')
-   text = '[ '..name..' ]\n ÔãÇ Èå Ïáíá ÑÚÇíÊ ä˜ÑÏä ŞæÇäíä ÇÎØÇÑ ÏÑíÇİÊ ãí˜äíÏ\nÊÚÏÇÏ ÇÎØÇÑ åÇí ÔãÇ : ?/?'
+   text = '[ '..name..' ]\n Ø´Ù…Ø§ Ø¨Ù‡ Ø¯Ù„ÛŒÙ„ Ø±Ø¹Ø§ÛŒØª Ù†Ú©Ø±Ø¯Ù† Ù‚ÙˆØ§Ù†ÛŒÙ† Ø§Ø®Ø·Ø§Ø± Ø¯Ø±ÛŒØ§ÙØª Ù…ÛŒÚ©Ù†ÛŒØ¯\nØªØ¹Ø¯Ø§Ø¯ Ø§Ø®Ø·Ø§Ø± Ù‡Ø§ÛŒ Ø´Ù…Ø§ : Û²/Û´'
    elseif value == '2' then
   redis:hset(hash, msg.id, '3')
-  text = '[ '..name..' ]\n ÔãÇ Èå Ïáíá ÑÚÇíÊ ä˜ÑÏä ŞæÇäíä ÇÎØÇÑ ÏÑíÇİÊ ãí˜äíÏ\nÊÚÏÇÏ ÇÎØÇÑ åÇí ÔãÇ : ?/?'
+  text = '[ '..name..' ]\n Ø´Ù…Ø§ Ø¨Ù‡ Ø¯Ù„ÛŒÙ„ Ø±Ø¹Ø§ÛŒØª Ù†Ú©Ø±Ø¯Ù† Ù‚ÙˆØ§Ù†ÛŒÙ† Ø§Ø®Ø·Ø§Ø± Ø¯Ø±ÛŒØ§ÙØª Ù…ÛŒÚ©Ù†ÛŒØ¯\nØªØ¹Ø¯Ø§Ø¯ Ø§Ø®Ø·Ø§Ø± Ù‡Ø§ÛŒ Ø´Ù…Ø§ : Û³/Û´'
    elseif value == '3' then
    redis:hdel(hash, msg.id, '0')
    local hash =  'banned:'..target
    redis:sadd(hash, msg.id)
-  text = '[ '..name..' ]\n Èå Ïáíá ÑÚÇíÊ ä˜ÑÏä ŞæÇäíä ÇÒ Ñæå ÇÎÑÇÌ ÔÏ (banned)\nÊÚÏÇÏ ÇÎØÇÑ åÇ : ?/?'
+  text = '[ '..name..' ]\n Ø¨Ù‡ Ø¯Ù„ÛŒÙ„ Ø±Ø¹Ø§ÛŒØª Ù†Ú©Ø±Ø¯Ù† Ù‚ÙˆØ§Ù†ÛŒÙ† Ø§Ø² Ú¯Ø±ÙˆÙ‡ Ø§Ø®Ø±Ø§Ø¬ Ø´Ø¯ (banned)\nØªØ¹Ø¯Ø§Ø¯ Ø§Ø®Ø·Ø§Ø± Ù‡Ø§ : Û´/Û´'
   chat_del_user(receiver, 'user#id'..msg.id, ok_cb, false)
    end
   else
    redis:hset(hash, msg.id, '1')
-   text = '[ '..name..' ]\n ÔãÇ Èå Ïáíá ÑÚÇíÊ ä˜ÑÏä ŞæÇäíä ÇÎØÇÑ ÏÑíÇİÊ ãí˜äíÏ\nÊÚÏÇÏ ÇÎØÇÑ åÇí ÔãÇ : ?/?'
+   text = '[ '..name..' ]\n Ø´Ù…Ø§ Ø¨Ù‡ Ø¯Ù„ÛŒÙ„ Ø±Ø¹Ø§ÛŒØª Ù†Ú©Ø±Ø¯Ù† Ù‚ÙˆØ§Ù†ÛŒÙ† Ø§Ø®Ø·Ø§Ø± Ø¯Ø±ÛŒØ§ÙØª Ù…ÛŒÚ©Ù†ÛŒØ¯\nØªØ¹Ø¯Ø§Ø¯ Ø§Ø®Ø·Ø§Ø± Ù‡Ø§ÛŒ Ø´Ù…Ø§ : Û±/Û´'
   end
   send_msg(receiver, text, ok_cb, false)
   else
-   send_msg(receiver, ' äÇã ˜ÇÑÈÑí íÏÇ äÔÏ.', ok_cb, false)
+   send_msg(receiver, ' Ù†Ø§Ù… Ú©Ø§Ø±Ø¨Ø±ÛŒ Ù¾ÛŒØ¯Ø§ Ù†Ø´Ø¯.', ok_cb, false)
   end
 end
 
@@ -59,27 +59,27 @@ local function warn_by_reply(extra, success, result) -- (on reply) /warn
   end
 ----------------------------------
   if is_momod2(msg.from.id, msg.to.id) and not is_admin2(extra.fromid) then
-  return send_msg(receiver, 'ÔãÇ äãíÊæÇäíÏ Èå ãÏíÑ Ñæå ÇÎØÇÑ ÈÏåíÏ!', ok_cb, false) end
+  return send_msg(receiver, 'Ø´Ù…Ø§ Ù†Ù…ÛŒØªÙˆØ§Ù†ÛŒØ¯ Ø¨Ù‡ Ù…Ø¯ÛŒØ± Ú¯Ø±ÙˆÙ‡ Ø§Ø®Ø·Ø§Ø± Ø¨Ø¯Ù‡ÛŒØ¯!', ok_cb, false) end
 --endif--
-  if is_admin2(msg.from.id) then return send_msg(receiver, 'ÔãÇ äãíÊæÇäíÏ Èå ÇÏãíä ÑÈÇÊ ÇÎØÇÑ ÈÏåíÏ!', ok_cb, false) end
+  if is_admin2(msg.from.id) then return send_msg(receiver, 'Ø´Ù…Ø§ Ù†Ù…ÛŒØªÙˆØ§Ù†ÛŒØ¯ Ø¨Ù‡ Ø§Ø¯Ù…ÛŒÙ† Ø±Ø¨Ø§Øª Ø§Ø®Ø·Ø§Ø± Ø¨Ø¯Ù‡ÛŒØ¯!', ok_cb, false) end
 --endif--
   if value then
    if value == '1' then
     redis:hset(hash, msg.from.id, '2')
-   text = '[ '..name..' ]\n .ÔãÇ Èå Ïáíá ÑÚÇíÊ ä˜ÑÏä ŞæÇäíä ÇÎØÇÑ ÏÑíÇİÊ ãí˜äíÏ\nÊÚÏÇÏ ÇÎØÇÑ åÇí ÔãÇ : ?/?'
+   text = '[ '..name..' ]\n .Ø´Ù…Ø§ Ø¨Ù‡ Ø¯Ù„ÛŒÙ„ Ø±Ø¹Ø§ÛŒØª Ù†Ú©Ø±Ø¯Ù† Ù‚ÙˆØ§Ù†ÛŒÙ† Ø§Ø®Ø·Ø§Ø± Ø¯Ø±ÛŒØ§ÙØª Ù…ÛŒÚ©Ù†ÛŒØ¯\nØªØ¹Ø¯Ø§Ø¯ Ø§Ø®Ø·Ø§Ø± Ù‡Ø§ÛŒ Ø´Ù…Ø§ : Û²/Û´'
    elseif value == '2' then
   redis:hset(hash, msg.from.id, '3')
-  text = '[ '..name..' ]\n ÔãÇ Èå Ïáíá ÑÚÇíÊ ä˜ÑÏä ŞæÇäíä ÇÎØÇÑ ÏÑíÇİÊ ãí˜äíÏ.\nÊÚÏÇÏ ÇÎØÇÑ åÇí ÔãÇ : ?/?'
+  text = '[ '..name..' ]\n Ø´Ù…Ø§ Ø¨Ù‡ Ø¯Ù„ÛŒÙ„ Ø±Ø¹Ø§ÛŒØª Ù†Ú©Ø±Ø¯Ù† Ù‚ÙˆØ§Ù†ÛŒÙ† Ø§Ø®Ø·Ø§Ø± Ø¯Ø±ÛŒØ§ÙØª Ù…ÛŒÚ©Ù†ÛŒØ¯.\nØªØ¹Ø¯Ø§Ø¯ Ø§Ø®Ø·Ø§Ø± Ù‡Ø§ÛŒ Ø´Ù…Ø§ : Û³/Û´'
    elseif value == '3' then
    redis:hdel(hash, msg.from.id, '0')
-  text = '[ '..name..' ]\n Èå Ïáíá ÑÚÇíÊ ä˜ÑÏä ŞæÇäíä ÇÒ Ñæå ÇÎÑÇÌ ÔÏ. (banned)\nÊÚÏÇÏ ÇÎØÇÑ åÇ : ?/?'
+  text = '[ '..name..' ]\n Ø¨Ù‡ Ø¯Ù„ÛŒÙ„ Ø±Ø¹Ø§ÛŒØª Ù†Ú©Ø±Ø¯Ù† Ù‚ÙˆØ§Ù†ÛŒÙ† Ø§Ø² Ú¯Ø±ÙˆÙ‡ Ø§Ø®Ø±Ø§Ø¬ Ø´Ø¯. (banned)\nØªØ¹Ø¯Ø§Ø¯ Ø§Ø®Ø·Ø§Ø± Ù‡Ø§ : Û´/Û´'
   local hash =  'banned:'..target
   redis:sadd(hash, msg.from.id)
   chat_del_user(receiver, 'user#id'..msg.from.id, ok_cb, false)
    end
   else
    redis:hset(hash, msg.from.id, '1')
-   text = '[ '..name..' ]\n ÔãÇ Èå Ïáíá ÑÚÇíÊ ä˜ÑÏä ŞæÇäíä ÇÎØÇÑ ÏÑíÇİÊ ãí˜äíÏ.\nÊÚÏÇÏ ÇÎØÇÑ åÇí ÔãÇ : ?/?'
+   text = '[ '..name..' ]\n Ø´Ù…Ø§ Ø¨Ù‡ Ø¯Ù„ÛŒÙ„ Ø±Ø¹Ø§ÛŒØª Ù†Ú©Ø±Ø¯Ù† Ù‚ÙˆØ§Ù†ÛŒÙ† Ø§Ø®Ø·Ø§Ø± Ø¯Ø±ÛŒØ§ÙØª Ù…ÛŒÚ©Ù†ÛŒØ¯.\nØªØ¹Ø¯Ø§Ø¯ Ø§Ø®Ø·Ø§Ø± Ù‡Ø§ÛŒ Ø´Ù…Ø§ : Û±/Û´'
   end
   reply_msg(extra.Reply, text, ok_cb, false)
 end
@@ -101,13 +101,13 @@ local function unwarn_by_username(extra, success, result) -- /unwarn <@username>
 --endif--
   if value then
   redis:hdel(hash, msg.id, '0')
-  text = 'ÇÎØÇÑ åÇí ˜ÇÑÈÑ ('..msg.id..') Ç˜ ÔÏ\nÊÚÏÇÏ ÇÎØÇÑ åÇ : ?/?'
+  text = 'Ø§Ø®Ø·Ø§Ø± Ù‡Ø§ÛŒ Ú©Ø§Ø±Ø¨Ø± ('..msg.id..') Ù¾Ø§Ú© Ø´Ø¯\nØªØ¹Ø¯Ø§Ø¯ Ø§Ø®Ø·Ø§Ø± Ù‡Ø§ : Û°/Û´'
   else
-   text = 'Çíä ˜ÇÑÈÑ ÇÎØÇÑí ÏÑíÇİÊ ä˜ÑÏå ÇÓÊ'
+   text = 'Ø§ÛŒÙ† Ú©Ø§Ø±Ø¨Ø± Ø§Ø®Ø·Ø§Ø±ÛŒ Ø¯Ø±ÛŒØ§ÙØª Ù†Ú©Ø±Ø¯Ù‡ Ø§Ø³Øª'
   end
   send_msg(receiver, text, ok_cb, false)
   else
-   send_msg(receiver, ' äÇã ˜ÇÑÈÑí íÏÇ äÔÏ.', ok_cb, false)
+   send_msg(receiver, ' Ù†Ø§Ù… Ú©Ø§Ø±Ø¨Ø±ÛŒ Ù¾ÛŒØ¯Ø§ Ù†Ø´Ø¯.', ok_cb, false)
   end
 end
 
@@ -128,9 +128,9 @@ local function unwarn_by_reply(extra, success, result) -- (on reply) /unwarn
 --endif--
   if value then
   redis:hdel(hash, msg.from.id, '0')
-  text = 'ÇÎØÇÑ åÇí ˜ÇÑÈÑ ('..msg.from.id..') Ç˜ ÔÏ\nÊÚÏÇÏ ÇÎØÇÑ åÇ : ?/?'
+  text = 'Ø§Ø®Ø·Ø§Ø± Ù‡Ø§ÛŒ Ú©Ø§Ø±Ø¨Ø± ('..msg.from.id..') Ù¾Ø§Ú© Ø´Ø¯\nØªØ¹Ø¯Ø§Ø¯ Ø§Ø®Ø·Ø§Ø± Ù‡Ø§ : Û°/Û´'
   else
-   text = 'Çíä ˜ÇÑÈÑ ÇÎØÇÑí ÏÑíÇİÊ ä˜ÑÏå ÇÓÊ'
+   text = 'Ø§ÛŒÙ† Ú©Ø§Ø±Ø¨Ø± Ø§Ø®Ø·Ø§Ø±ÛŒ Ø¯Ø±ÛŒØ§ÙØª Ù†Ú©Ø±Ø¯Ù‡ Ø§Ø³Øª'
   end
   reply_msg(extra.Reply, text, ok_cb, false)
 end
@@ -145,19 +145,19 @@ local function run(msg, matches)
  local receiver = get_receiver(msg)
  if msg.to.type == 'user' then return end
  --endif--
- if not is_momod(msg) then return 'ÔãÇ ãÏíÑ äíÓÊíÏ' end
+ if not is_momod(msg) then return 'Ø´Ù…Ø§ Ù…Ø¯ÛŒØ± Ù†ÛŒØ³ØªÛŒØ¯' end
  --endif--
  ----------------------------------
  if matches[1]:lower() == 'warn' and not matches[2] then -- (on reply) /warn
   if msg.reply_id then
     local Reply = msg.reply_id
     msgr = get_message(msg.reply_id, warn_by_reply, {receiver=receiver, Reply=Reply, target=target, fromid=fromid})
-  else return 'ÇÒ äÇã ˜ÇÑÈÑí íÇ Ñíáí ˜ÑÏä íÇã ˜ÇÑÈÑ ÈÑÇí ÇÎØÇÑ ÏÇÏä ÇÓÊİÇÏå ˜äíÏ' end
+  else return 'Ø§Ø² Ù†Ø§Ù… Ú©Ø§Ø±Ø¨Ø±ÛŒ ÛŒØ§ Ø±ÛŒÙ¾Ù„ÛŒ Ú©Ø±Ø¯Ù† Ù¾ÛŒØ§Ù… Ú©Ø§Ø±Ø¨Ø± Ø¨Ø±Ø§ÛŒ Ø§Ø®Ø·Ø§Ø± Ø¯Ø§Ø¯Ù† Ø§Ø³ØªÙØ§Ø¯Ù‡ Ú©Ù†ÛŒØ¯' end
  --endif--
  end
  if matches[1]:lower() == 'warn' and matches[2] then -- /warn <@username>
    if string.match(user, '^%d+$') then
-      return 'ÇÒ äÇã ˜ÇÑÈÑí íÇ Ñíáí ˜ÑÏä íÇã ˜ÇÑÈÑ ÈÑÇí ÇÎØÇÑ ÏÇÏä ÇÓÊİÇÏå ˜äíÏ'
+      return 'Ø§Ø² Ù†Ø§Ù… Ú©Ø§Ø±Ø¨Ø±ÛŒ ÛŒØ§ Ø±ÛŒÙ¾Ù„ÛŒ Ú©Ø±Ø¯Ù† Ù¾ÛŒØ§Ù… Ú©Ø§Ø±Ø¨Ø± Ø¨Ø±Ø§ÛŒ Ø§Ø®Ø·Ø§Ø± Ø¯Ø§Ø¯Ù† Ø§Ø³ØªÙØ§Ø¯Ù‡ Ú©Ù†ÛŒØ¯'
     elseif string.match(user, '^@.+$') then
       username = string.gsub(user, '@', '')
       msgr = res_user(username, warn_by_username, {receiver=receiver, user=user, target=target, fromid=fromid})
@@ -167,12 +167,12 @@ local function run(msg, matches)
   if msg.reply_id then
     local Reply = msg.id
     msgr = get_message(msg.reply_id, unwarn_by_reply, {receiver=receiver, Reply=Reply, target=target, fromid=fromid})
-  else return 'ÇÒ äÇã ˜ÇÑÈÑí íÇ Ñíáí ˜ÑÏä ÇÓÊİÇÏå ˜äíÏ' end
+  else return 'Ø§Ø² Ù†Ø§Ù… Ú©Ø§Ø±Ø¨Ø±ÛŒ ÛŒØ§ Ø±ÛŒÙ¾Ù„ÛŒ Ú©Ø±Ø¯Ù† Ø§Ø³ØªÙØ§Ø¯Ù‡ Ú©Ù†ÛŒØ¯' end
  --endif--
  end
  if matches[1]:lower() == 'unwarn' and matches[2] then -- /unwarn <@username>
    if string.match(user, '^%d+$') then
-      return 'ÇÒ äÇã ˜ÇÑÈÑí íÇ Ñíáí ˜ÑÏä ÇÓÊİÇÏå ˜äíÏ'
+      return 'Ø§Ø² Ù†Ø§Ù… Ú©Ø§Ø±Ø¨Ø±ÛŒ ÛŒØ§ Ø±ÛŒÙ¾Ù„ÛŒ Ú©Ø±Ø¯Ù† Ø§Ø³ØªÙØ§Ø¯Ù‡ Ú©Ù†ÛŒØ¯'
     elseif string.match(user, '^@.+$') then
       username = string.gsub(user, '@', '')
       msgr = res_user(username, unwarn_by_username, {receiver=receiver, user=user, target=target, fromid=fromid})
