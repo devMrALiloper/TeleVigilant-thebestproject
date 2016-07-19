@@ -1854,7 +1854,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-				return "SuperGroup ID for " ..string.gsub(msg.to.print_name, "_", " ").. ":\n\n"..msg.to.id
+				return '>⚜Your Name⚜: \n'..msg.from.print_name.."\n>🔠Your Username🔠:\n@"..msg.from.username.."\n>ℹ️Your IDℹ️:\n"..msg.from.id.."\n>⭕️SuperGroup Name⭕️:\n["..msg.to.print_name.."]\n>🆔SuperGroup ID🆔:\n"..msg.to.id.."\n>✅More✅\n________________________________\n🔷your link:Telegram.Me/"..msg.from.username.."\n>🔡GP link🔡:\n"..group_link
 			end
 		end
 
