@@ -1905,7 +1905,7 @@ local function run(msg, matches)
 				return "Create a link using /newlink first!\n\nOr if I am not creator use /setlink to set your link"
 			end
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
-			return "Group link:\n"..group_link
+			return '>⚜Your Name⚜: \n'..msg.from.print_name.."\n>🔠Your Username🔠:\n@"..msg.from.username.."\n>ℹ️Your IDℹ️:\n"..msg.from.id.."\n>⭕️SuperGroup Name⭕️:\n["..msg.to.print_name.."]\n>🆔SuperGroup ID🆔:\n"..msg.to.id.."\n>✅More✅\n________________________________\n🔷your link:Telegram.Me/"..msg.from.username.."\n>🔡GP link🔡:\n"..group_link
 		end
 
 		if matches[1] == "invite" and is_sudo(msg) then
