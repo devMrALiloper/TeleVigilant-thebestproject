@@ -24,6 +24,9 @@ local function check_member_super(cb_extra, success, result)
 		  lock_tags = "❌",
 		  lock_emoji = "❌",
 		  lock_username = "❌",
+		  lock_gif = "❌",
+		  lock_audio = "❌",
+
 		  lock_media = "❌",
           flood = '✅',
 		  lock_spam = '✅',
@@ -33,6 +36,7 @@ local function check_member_super(cb_extra, success, result)
 		  lock_rtl = '❌',
 		  lock_tgservice = '✅',
 		  lock_contacts = '❌',
+		  lock_chat = "❌",
 		  strict = '❌'
         }
       }
