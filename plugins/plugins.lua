@@ -1,4 +1,3 @@
-
 do
 
 -- Returns the key (index) in the config.enabled_plugins table
