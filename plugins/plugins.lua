@@ -1,5 +1,4 @@
-Mr_AL_i, [۲۰.۰۷.۱۶ ۲۱:۰۱]
-[Forwarded from Mohamad ⚜]
+
 do
 
 -- Returns the key (index) in the config.enabled_plugins table
