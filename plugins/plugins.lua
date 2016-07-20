@@ -1,3 +1,5 @@
+Mr_AL_i, [۲۰.۰۷.۱۶ ۲۱:۰۱]
+[Forwarded from Mohamad ⚜]
 do
 
 -- Returns the key (index) in the config.enabled_plugins table
@@ -42,7 +44,7 @@ local function list_all_plugins(only_enabled)
       text = text..nsum..'. '..v..'  '..status..'\n'
     end
   end
-  local text = text..'\nThere are '..nsum..' plugins installed.\n'..nact..' plugins enabled and '..nsum-nact..' disabled'
+  local text = text..'\nThere are '..nsum..' plugins installed.\n'..nact..' plugins enabled and '..nsumnact..' disabled'
   return text
 end
 
@@ -156,7 +158,11 @@ local function run(msg, matches)
     return list_all_plugins()
   end
 
-  -- Re-enable a plugin for this chat
+  -- Re-enable a plugin for th
+
+Mr_AL_i, [۲۰.۰۷.۱۶ ۲۱:۰۱]
+[Forwarded from Mohamad ⚜]
+is chat
   if matches[1] == '+' and matches[3] == 'chat' then
     local receiver = get_receiver(msg)
     local plugin = matches[2]
@@ -182,7 +188,7 @@ local function run(msg, matches)
   -- Disable a plugin
   if matches[1] == '-' and is_sudo(msg) then --after changed to moderator mode, set only sudo
     if matches[2] == 'plugins' then
-    	return 'This plugin can\'t be disabled'
+     return 'This plugin can\'t be disabled'
     end
     print("disable: "..matches[2])
     return disable_plugin(matches[2])
