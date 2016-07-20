@@ -16,47 +16,47 @@ if is_chat_msg(msg) or is_super_group(msg) then
 	if settings.lock_arabic then
 		lock_arabic = settings.lock_arabic
 	else
-		lock_arabic = 'no'
+		lock_arabic = '❌'
 	end
 	if settings.lock_rtl then
 		lock_rtl = settings.lock_rtl
 	else
-		lock_rtl = 'no'
+		lock_rtl = '❌'
 	end
 		if settings.lock_tgservice then
 		lock_tgservice = settings.lock_tgservice
 	else
-		lock_tgservice = 'no'
+		lock_tgservice = '❌'
 	end
 	if settings.lock_link then
 		lock_link = settings.lock_link
 	else
-		lock_link = 'no'
+		lock_link = '❌'
 	end
 	if settings.lock_member then
 		lock_member = settings.lock_member
 	else
-		lock_member = 'no'
+		lock_member = '❌'
 	end
 	if settings.lock_spam then
 		lock_spam = settings.lock_spam
 	else
-		lock_spam = 'no'
+		lock_spam = '❌'
 	end
 	if settings.lock_sticker then
 		lock_sticker = settings.lock_sticker
 	else
-		lock_sticker = 'no'
+		lock_sticker = '❌'
 	end
 	if settings.lock_contacts then
 		lock_contacts = settings.lock_contacts
 	else
-		lock_contacts = 'no'
+		lock_contacts = '❌'
 	end
 	if settings.strict then
 		strict = settings.strict
 	else
-		strict = 'no'
+		strict = '❌'
 	end
 		if msg and not msg.service and is_muted(msg.to.id, 'All: yes') or is_muted_user(msg.to.id, msg.from.id) and not msg.service then
 			delete_msg(msg.id, ok_cb, false)
