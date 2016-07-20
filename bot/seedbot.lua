@@ -224,7 +224,6 @@ function create_config( )
     "arabic_lock",
     "plugins",
     "send",
-    "filter",
     "linkpv",
     "time",
     "welcome",
