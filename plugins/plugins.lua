@@ -158,8 +158,6 @@ local function run(msg, matches)
 
   -- Re-enable a plugin for th
 
-Mr_AL_i, [۲۰.۰۷.۱۶ ۲۱:۰۱]
-[Forwarded from Mohamad ⚜]
 is chat
   if matches[1] == '+' and matches[3] == 'chat' then
     local receiver = get_receiver(msg)
