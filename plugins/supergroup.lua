@@ -1526,10 +1526,10 @@ local function callbackres(extra, success, result)
 		local chat_id = string.gsub(receiver, 'channel#id', '')
 		if is_muted_user(chat_id, user_id) then
 			unmute_user(chat_id, user_id)
-			send_large_msg(receiver, " ["..user_id.."] ✅removed from muted user list"✅)
+			send_large_msg(receiver, " ["..user_id.."] ✅removed from muted user list✅")
 		elseif is_owner(extra.msg) then
 			mute_user(chat_id, user_id)
-			send_large_msg(receiver, " ["..user_id.."] ✅added to muted user list"✅)
+			send_large_msg(receiver, " ["..user_id.."] ✅added to muted user list✅")
 		end
 	end
 end
