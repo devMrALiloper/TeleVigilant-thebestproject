@@ -5,7 +5,7 @@ local function check_member_super(cb_extra, success, result)
   local data = cb_extra.data
   local msg = cb_extra.msg
   if success == 0 then
-	send_large_msg(receiver, "Promote me to admin first!")
+	send_large_msg(receiver, "⚠️Promote me to admin first!⚠️")
   end
   for k,v in pairs(result) do
     local member_id = v.peer_id
@@ -1756,7 +1756,7 @@ local function run(msg, matches)
 				return "no owner,ask admins in support groups to set owner for your SuperGroup"
 			end
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] used /owner")
-			return "⭕️SuperGroup owner is ["..group_owner..']⭕️'
+			return "⭕️SuperGroup owner is⭕️ ["..group_owner..']️'
 		end
 
 		if matches[1] == "modlist" then
