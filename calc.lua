@@ -34,3 +34,4 @@ description = "commands: / and * and ^ and + and -",
   },
   run = run
 }
+--Some Things Edited By @Mr_AL_i
