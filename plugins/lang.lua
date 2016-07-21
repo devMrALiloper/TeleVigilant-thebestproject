@@ -16,7 +16,7 @@ redis:hset(hash,'lang',matches[2])
 end
 if matches[1] == 'lang' then
 if group_lang then 
-return "زیان گروه شما فارسی است"
+return "زبان گروه شما فارسی است"
 else
 return "Group lang : en"
 end
