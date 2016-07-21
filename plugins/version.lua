@@ -13,6 +13,7 @@ function run(msg, matches)
   Robot ID : @Spiran_TG
   -------------------
   Developer & SUDO : άQά </🅰ιɪ>
+  >@Mr_AL_i<
   -------------------
   Managers : 
   ATTACKER >@XxattackerxX<
