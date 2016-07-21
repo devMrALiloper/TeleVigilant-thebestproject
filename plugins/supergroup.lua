@@ -1854,7 +1854,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-				return "⭕️SuperGroup Name: " ..string.gsub(msg.to.print_name, "_", " ").. "\n\n🆔SuperGroup ID: "..msg.to.id
+				return "💢FirstName : "..(msg.from.first_name or "---").."\n💢LastName : "..(msg.from.last_name or "---").."\n💢UserName :@"..(msg.from.username or "---").."\n💢ID : "..msg.from.id.."\n⭕️SuperGroup Name: "..string.gsub(msg.to.print_name, "_", " ").."\n🆔SuperGroup ID: : "..msg.to.id
 			end
 		end
 
