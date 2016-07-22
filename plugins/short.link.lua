@@ -18,4 +18,4 @@ return {
 }
 
 --Hextor_ch
--- @Hextor_admin
+--in SPIRAN Source
