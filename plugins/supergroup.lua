@@ -1756,7 +1756,7 @@ local function run(msg, matches)
 				return "no owner,ask admins in support groups to set owner for your SuperGroup"
 			end
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] used /owner")
-			return "⭕️SuperGroup owner is⭕️ ["..group_owner..']️'
+			return "⭕️SuperGroup owner is⭕️ ["..group_owner..']'
 		end
 
 		if matches[1] == "modlist" then
@@ -1854,7 +1854,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-				return "💢FirstName : "..(msg.from.first_name or "---").."\n💢LastName : "..(msg.from.last_name or "---").."\n💢UserName :@"..(msg.from.username or "---").."\n💢ID : "..msg.from.id.."\n⭕️SuperGroup Name: "..string.gsub(msg.to.print_name, "_", " ").."\n🆔SuperGroup ID: : "..msg.to.id
+				return "💢FirstName : "..(msg.from.first_name or "---").."\n💢LastName : "..(msg.from.last_name or "---").."\n💢UserName :@"..(msg.from.username or "---").."\n💢ID : "..msg.from.id.."\n⭕️SuperGroup Name: "..string.gsub(msg.to.print_name, "_", " ").."\n🆔SuperGroup ID : "..msg.to.id
 			end
 		end
 
@@ -1905,7 +1905,7 @@ local function run(msg, matches)
 				return "Create a link using /newlink first!\n\nOr if I am not creator use /setlink to set your link"
 			end
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
-			return '>⚜Your Name⚜: \n'..msg.from.print_name.."\n>🔠Your Username🔠:\n@"..msg.from.username.."\n>ℹ️Your IDℹ️:\n"..msg.from.id.."\n>⭕️SuperGroup Name⭕️:\n["..msg.to.print_name.."]\n>🆔SuperGroup ID🆔:\n"..msg.to.id.."\n>✅More✅\n________________________________\n🔷your link:Telegram.Me/"..msg.from.username.."\n>🔡GP link🔡:\n"..group_link
+			return '>⚜Your Name⚜: \n'..msg.from.print_name.."\n>🔠Your Username🔠:\n@"..msg.from.username.."\n>ℹ️Your IDℹ️:\n"..msg.from.id.."\n>⭕️SuperGroup Name⭕️:\n["..msg.to.print_name.."]\n>🆔SuperGroup ID🆔:\n"..msg.to.id.."\n>✅More✅\n_______________________________\n🔷your link:Telegram.Me/"..msg.from.username.."\n>🔡GP link🔡:\n"..group_link
 		end
 
 		if matches[1] == "invite" and is_sudo(msg) then
