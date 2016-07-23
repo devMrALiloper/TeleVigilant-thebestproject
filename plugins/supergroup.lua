@@ -1886,8 +1886,7 @@ local function run(msg, matches)
 				local um_hash = 'msgs:'..msg.from.id..':'..msg.to.id
 				user_info.msgs = tonumber(redis:get(um_hash) or 0)
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-                        	return "💢FirstName : "..(msg.from.first_name or "---").."\n💢LastName : "..(msg.from.last_name or "---").."\n💢UserName :@"..(msg.from.username or "---").."\n📡Rank : "..userrank.."\n🆔ID : "..msg.from.id.."\n🔢PhoneNumber : "..number.."\nℹ️TotalMessage : "..user_info.msgs.."\n➖➖➖➖➖➖➖➖➖➖\n⭕️SuperGroup Name: "..string.gsub(msg.to.print_name, "_", " ").."\n🆔SuperGroup ID : "..msg.to.id
-                        end
+                                return "💢FɪʀsᴛNᴀᴍᴇ : "..(msg.from.first_name or "---").."\n💢LᴀsᴛNᴀᴍᴇ : "..(msg.from.last_name or "---").."\n💢ƱsεяƝαмє :@"..(msg.from.username or "---").."\n📡Rᴀɴᴋ : "..userrank.."\n🆔Iᗪ : "..msg.from.id.."\n🔢ƤнσηєƝυмвєя : "..number.."\nℹ️ƬσтαℓMєѕѕαgє : "..user_info.msgs.."\n➖➖➖➖➖➖➖➖➖➖\n⭕️SυρεяGяσυρ Nαмε: "..string.gsub(msg.to.print_name, "_", " ").."\n🆔SυρεяGяσυρ Iᗪ : "..msg.to.id                        end
 		end
 
 		if matches[1] == 'kickme' then
