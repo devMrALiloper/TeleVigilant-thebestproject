@@ -1853,6 +1853,38 @@ local function run(msg, matches)
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested ID for: @"..username)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
+				userrank = "Member"
+				if is_sudo(msg) then
+						userrank = "Sudo"
+				elseif is_owner(msg) then
+						userrank = "Owner"
+				elseif is_admin1(msg) then
+						userrank = "Admin"
+				elseif is_momod(msg) then
+						userrank = "Moderator"
+				end
+				number = "----"
+				if msg.from.phone then
+					number = "+98"..string.sub(msg.from.phone, 3)
+					if string.sub(msg.from.phone, 0,4) == '9891' then
+						number = number.."\n➖➖➖➖➖➖➖➖➖➖\n💢simcard : ir-mci"
+					elseif string.sub(msg.from.phone, 0,5) == '98932' then
+						number = number.."\n➖➖➖➖➖➖➖➖➖➖\n💢simcard : Taliya"
+					elseif string.sub(msg.from.phone, 0,4) == '9893' then
+						number = number.."\n➖➖➖➖➖➖➖➖➖➖\n💢simcard : Irancell"
+					elseif string.sub(msg.from.phone, 0,4) == '9890' then
+						number = number.."\n➖➖➖➖➖➖➖➖➖➖\n💢simcard : Irancell"
+					elseif string.sub(msg.from.phone, 0,4) == '9892' then
+						number = number.."\n➖➖➖➖➖➖➖➖➖➖\n💢simcard : Rightel"
+					else
+						number = number.."\n➖➖➖➖➖➖➖➖➖➖\n💢simcard : another"
+					end
+				end
+				local user_info = {}
+				local uhash = 'user:'..msg.from.id
+				local user = redis:hgetall(uhash)
+				local um_hash = 'msgs:'..msg.from.id..':'..msg.to.id
+				user_info.msgs = tonumber(redis:get(um_hash) or 0)
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
                         	return "💢FirstName : "..(msg.from.first_name or "---").."\n💢LastName : "..(msg.from.last_name or "---").."\n💢UserName :@"..(msg.from.username or "---").."\n📡Rank : "..userrank.."\n🆔ID : "..msg.from.id.."\n🔢PhoneNumber : "..number.."\nℹ️TotalMessage : "..user_info.msgs.."\n⭕️SuperGroup Name: "..string.gsub(msg.to.print_name, "_", " ").."\n🆔SuperGroup ID : "..msg.to.id
                         end
