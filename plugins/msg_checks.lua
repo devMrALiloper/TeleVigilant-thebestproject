@@ -16,47 +16,47 @@ if is_chat_msg(msg) or is_super_group(msg) then
 	if settings.lock_arabic then
 		lock_arabic = settings.lock_arabic
 	else
-		lock_arabic = '❌'
+		lock_arabic = 'no'
 	end
 	if settings.lock_rtl then
 		lock_rtl = settings.lock_rtl
 	else
-		lock_rtl = '❌'
+		lock_rtl = 'no'
 	end
 		if settings.lock_tgservice then
 		lock_tgservice = settings.lock_tgservice
 	else
-		lock_tgservice = '❌'
+		lock_tgservice = 'no'
 	end
 	if settings.lock_link then
 		lock_link = settings.lock_link
 	else
-		lock_link = '❌'
+		lock_link = 'no'
 	end
 	if settings.lock_member then
 		lock_member = settings.lock_member
 	else
-		lock_member = '❌'
+		lock_member = 'no'
 	end
 	if settings.lock_spam then
 		lock_spam = settings.lock_spam
 	else
-		lock_spam = '❌'
+		lock_spam = 'no'
 	end
 	if settings.lock_sticker then
 		lock_sticker = settings.lock_sticker
 	else
-		lock_sticker = '❌'
+		lock_sticker = 'no'
 	end
 	if settings.lock_contacts then
 		lock_contacts = settings.lock_contacts
 	else
-		lock_contacts = '❌'
+		lock_contacts = 'no'
 	end
 	if settings.strict then
 		strict = settings.strict
 	else
-		strict = '❌'
+		strict = 'no'
 	end
 		if msg and not msg.service and is_muted(msg.to.id, 'All: yes') or is_muted_user(msg.to.id, msg.from.id) and not msg.service then
 			delete_msg(msg.id, ok_cb, false)
@@ -74,7 +74,7 @@ if is_chat_msg(msg) or is_super_group(msg) then
 					kick_user(msg.from.id, msg.to.id)
 				end
 			end
-			local is_link_msg = msg.text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or msg.text:match("@") or msg.text:match("#")
+			local is_link_msg = msg.text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or msg.text:match("@") or msg.text:match("#") or msg.text:match("http")
 			local is_bot = msg.text:match("?[Ss][Tt][Aa][Rr][Tt]=")
 			if is_link_msg and lock_link == "yes" and not is_bot then
 				delete_msg(msg.id, ok_cb, false)
@@ -114,7 +114,7 @@ if is_chat_msg(msg) or is_super_group(msg) then
 		end
 		if msg.media then -- msg.media checks
 			if msg.media.title then
-				local is_link_title = msg.media.title:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.media.title:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or msg.media.title:match("@") or msg.media.title:match("#")
+				local is_link_title = msg.media.title:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.media.title:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or msg.media.title:match("@") or msg.media.title:match("#") or msg.media.title:match("http")
 				if is_link_title and lock_link == "yes" then
 					delete_msg(msg.id, ok_cb, false)
 					if strict == "yes" or to_chat then
@@ -130,7 +130,7 @@ if is_chat_msg(msg) or is_super_group(msg) then
 				end
 			end
 			if msg.media.description then
-				local is_link_desc = msg.media.description:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.media.description:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or msg.media.description:match("@") or msg.media.description:match("#")
+				local is_link_desc = msg.media.description:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.media.description:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or msg.media.description:match("@") or msg.media.description:match("#") or msg.media.description:match("http")
 				if is_link_desc and lock_link == "yes" then
 					delete_msg(msg.id, ok_cb, false)
 					if strict == "yes" or to_chat then
@@ -146,7 +146,7 @@ if is_chat_msg(msg) or is_super_group(msg) then
 				end
 			end
 			if msg.media.caption then -- msg.media.caption checks
-				local is_link_caption = msg.media.caption:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.media.caption:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or msg.media.caption:match("@") or msg.media.caption:match("#")
+				local is_link_caption = msg.media.caption:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.media.caption:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or msg.media.caption:match("@") or msg.media.caption:match("#") or msg.media.caption:match("http")
 				if is_link_caption and lock_link == "yes" then
 					delete_msg(msg.id, ok_cb, false)
 					if strict == "yes" or to_chat then
@@ -216,7 +216,7 @@ if is_chat_msg(msg) or is_super_group(msg) then
 		end
 		if msg.fwd_from then
 			if msg.fwd_from.title then
-				local is_link_title = msg.fwd_from.title:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.fwd_from.title:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or msg.fwd_from.title:match("@") or msg.fwd_from.title:match("#")
+				local is_link_title = msg.fwd_from.title:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.fwd_from.title:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or msg.fwd_from.title:match("@") or msg.fwd_from.title:match("#") or msg.fwd_from.title:match("http")
 				if is_link_title and lock_link == "yes" then
 					delete_msg(msg.id, ok_cb, false)
 					if strict == "yes" or to_chat then
@@ -296,3 +296,4 @@ return {
 }
 --End msg_checks.lua
 --By @Rondoozle
+--updated by @Mr_AL_i
