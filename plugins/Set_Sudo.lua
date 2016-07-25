@@ -26,5 +26,5 @@ patterns = {
 },
 run = run
 }
---By REZA From Hextor_ch
+--By REZA
 --Edited by @Mr_AL_i
