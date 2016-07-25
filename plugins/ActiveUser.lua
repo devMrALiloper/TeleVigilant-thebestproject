@@ -151,26 +151,26 @@ maxname[2] = user.print_name
 	maxoth[3] = redis:get('utmsgoth:'..maxid[3]..':'..cb_extra)
 	end
 	if not maxuser[1] or maxuser[1] == '' then
-	maxuser[1] = 'äÏÇÑÏ'
+	maxuser[1] = 'Ù†Ø¯Ø§Ø±Ø¯'
 	else
 	maxuser[1] = '@'..maxuser[1]
 	end
 	if not maxuser[2] or maxuser[2] == '' then
-	maxuser[2] = 'äÏÇÑÏ'
+	maxuser[2] = 'Ù†Ø¯Ø§Ø±Ø¯'
 	else
 	maxuser[2] = '@'..maxuser[2]
 	end
 	if not maxuser[3] or maxuser[3] == '' then
-	maxuser[3] = 'äÏÇÑÏ'
+	maxuser[3] = 'Ù†Ø¯Ø§Ø±Ø¯'
 	else
 	maxuser[3] = '@'..maxuser[3]
 end
-local text = '??İÚÇáÇä ÇãÑæÒ Ñæå\n1? '..maxname[1]..'?'..maxuser[1]..'?\n\n??ÊÚÏÇÏ íÇã åÇí ÇÑÓÇáí: '..maxtex[1] + maxph[1] + maxst[1] + maxoth[1]..'\n\n??ÇÓÊí˜Ñ: '..maxst[1]..'\n\n??ÊÕæíÑ: '..maxph[1]..'\n\n?? ãÊä: '..maxtex[1]..'\n\n?? ÓÇíÑ: '..maxoth[1]
+local text = 'â™¨ï¸ÙØ¹Ø§Ù„Ø§Ù† Ø§Ù…Ø±ÙˆØ² Ú¯Ø±ÙˆÙ‡\n1âƒ£ '..maxname[1]..'ã€–'..maxuser[1]..'ã€—\n\nğŸ“¨ØªØ¹Ø¯Ø§Ø¯ Ù¾ÛŒØ§Ù… Ù‡Ø§ÛŒ Ø§Ø±Ø³Ø§Ù„ÛŒ: '..maxtex[1] + maxph[1] + maxst[1] + maxoth[1]..'\n\nğŸ‘¾Ø§Ø³ØªÛŒÚ©Ø±: '..maxst[1]..'\n\nğŸ“·ØªØµÙˆÛŒØ±: '..maxph[1]..'\n\nğŸ“ƒ Ù…ØªÙ†: '..maxtex[1]..'\n\nğŸ“¦ Ø³Ø§ÛŒØ±: '..maxoth[1]
 if maxid[2] then
 	if not maxid[3] then
-text = text..'\n\n 2? '..maxname[2]..' ?'..maxuser[2]..'?\n\n??ÊÚÏÇÏ íÇã åÇí ÇÑÓÇáí: '..maxtex[2] + maxph[2] + maxst[2] + maxoth[2]..'\n\n??ÇÓÊí˜Ñ: '..maxst[2]..'\n\n??ÊÕæíÑ: '..maxph[2]..'\n\n?? ãÊä: '..maxtex[2]..'\n\n?? ÓÇíÑ: '..maxoth[2]
+text = text..'\n\n 2âƒ£ '..maxname[2]..' ã€–'..maxuser[2]..'ã€—\n\nğŸ“¨ØªØ¹Ø¯Ø§Ø¯ Ù¾ÛŒØ§Ù… Ù‡Ø§ÛŒ Ø§Ø±Ø³Ø§Ù„ÛŒ: '..maxtex[2] + maxph[2] + maxst[2] + maxoth[2]..'\n\nğŸ‘¾Ø§Ø³ØªÛŒÚ©Ø±: '..maxst[2]..'\n\nğŸ“·ØªØµÙˆÛŒØ±: '..maxph[2]..'\n\nğŸ“ƒ Ù…ØªÙ†: '..maxtex[2]..'\n\nğŸ“¦ Ø³Ø§ÛŒØ±: '..maxoth[2]
 else
-text = text..'\n\n 2? '..maxname[2]..' ?'..maxuser[2]..'?\n\n??ÊÚÏÇÏ íÇã åÇí ÇÑÓÇáí: '..maxtex[2] + maxph[2] + maxst[2] + maxoth[2]..'\n\n??ÇÓÊí˜Ñ: '..maxst[2]..'\n\n??ÊÕæíÑ: '..maxph[2]..'\n\n?? ãÊä: '..maxtex[2]..'\n\n?? ÓÇíÑ: '..maxoth[2]..'\n\n 3? '..maxname[3]..' ?'..maxuser[3]..'?\n\n??ÊÚÏÇÏ íÇã åÇí ÇÑÓÇáí: '..maxtex[3] + maxph[3] + maxst[3] + maxoth[3]..'\n\n??ÇÓÊí˜Ñ: '..maxst[3]..'\n\n??ÊÕæíÑ: '..maxph[3]..'\n\n?? ãÊä: '..maxtex[3]..'\n\n?? ÓÇíÑ: '..maxoth[3]
+text = text..'\n\n 2âƒ£ '..maxname[2]..' ã€–'..maxuser[2]..'ã€—\n\nğŸ“¨ØªØ¹Ø¯Ø§Ø¯ Ù¾ÛŒØ§Ù… Ù‡Ø§ÛŒ Ø§Ø±Ø³Ø§Ù„ÛŒ: '..maxtex[2] + maxph[2] + maxst[2] + maxoth[2]..'\n\nğŸ‘¾Ø§Ø³ØªÛŒÚ©Ø±: '..maxst[2]..'\n\nğŸ“·ØªØµÙˆÛŒØ±: '..maxph[2]..'\n\nğŸ“ƒ Ù…ØªÙ†: '..maxtex[2]..'\n\nğŸ“¦ Ø³Ø§ÛŒØ±: '..maxoth[2]..'\n\n 3âƒ£ '..maxname[3]..' ã€–'..maxuser[3]..'ã€—\n\nğŸ“¨ØªØ¹Ø¯Ø§Ø¯ Ù¾ÛŒØ§Ù… Ù‡Ø§ÛŒ Ø§Ø±Ø³Ø§Ù„ÛŒ: '..maxtex[3] + maxph[3] + maxst[3] + maxoth[3]..'\n\nğŸ‘¾Ø§Ø³ØªÛŒÚ©Ø±: '..maxst[3]..'\n\nğŸ“·ØªØµÙˆÛŒØ±: '..maxph[3]..'\n\nğŸ“ƒ Ù…ØªÙ†: '..maxtex[3]..'\n\nğŸ“¦ Ø³Ø§ÛŒØ±: '..maxoth[3]
 end
 end
 send_msg('chat#id'..cb_extra, text, ok_cb, true)
@@ -256,26 +256,26 @@ maxname[2] = user.print_name
 	maxoth[3] = redis:get('utmsgoth:'..maxid[3]..':'..cb_extra)
 	end
 	if not maxuser[1] or maxuser[1] == '' then
-	maxuser[1] = 'äÏÇÑÏ'
+	maxuser[1] = 'Ù†Ø¯Ø§Ø±Ø¯'
 	else
 	maxuser[1] = '@'..maxuser[1]
 	end
 	if not maxuser[2] or maxuser[2] == '' then
-	maxuser[2] = 'äÏÇÑÏ'
+	maxuser[2] = 'Ù†Ø¯Ø§Ø±Ø¯'
 	else
 	maxuser[2] = '@'..maxuser[2]
 	end
 	if not maxuser[3] or maxuser[3] == '' then
-	maxuser[3] = 'äÏÇÑÏ'
+	maxuser[3] = 'Ù†Ø¯Ø§Ø±Ø¯'
 	else
 	maxuser[3] = '@'..maxuser[3]
 end
-local text = '??İÚÇáÇä ÇãÑæÒ Ñæå\n1? '..maxname[1]..'?'..maxuser[1]..'?\n\n??ÊÚÏÇÏ íÇã åÇí ÇÑÓÇáí: '..maxtex[1] + maxph[1] + maxst[1] + maxoth[1]..'\n\n??ÇÓÊí˜Ñ: '..maxst[1]..'\n\n??ÊÕæíÑ: '..maxph[1]..'\n\n?? ãÊä: '..maxtex[1]..'\n\n?? ÓÇíÑ: '..maxoth[1]
+local text = 'â™¨ï¸ÙØ¹Ø§Ù„Ø§Ù† Ø§Ù…Ø±ÙˆØ² Ú¯Ø±ÙˆÙ‡\n1âƒ£ '..maxname[1]..'ã€–'..maxuser[1]..'ã€—\n\nğŸ“¨ØªØ¹Ø¯Ø§Ø¯ Ù¾ÛŒØ§Ù… Ù‡Ø§ÛŒ Ø§Ø±Ø³Ø§Ù„ÛŒ: '..maxtex[1] + maxph[1] + maxst[1] + maxoth[1]..'\n\nğŸ‘¾Ø§Ø³ØªÛŒÚ©Ø±: '..maxst[1]..'\n\nğŸ“·ØªØµÙˆÛŒØ±: '..maxph[1]..'\n\nğŸ“ƒ Ù…ØªÙ†: '..maxtex[1]..'\n\nğŸ“¦ Ø³Ø§ÛŒØ±: '..maxoth[1]
 if maxid[2] then
 	if not maxid[3] then
-text = text..'\n\n 2? '..maxname[2]..' ?'..maxuser[2]..'?\n\n??ÊÚÏÇÏ íÇã åÇí ÇÑÓÇáí: '..maxtex[2] + maxph[2] + maxst[2] + maxoth[2]..'\n\n??ÇÓÊí˜Ñ: '..maxst[2]..'\n\n??ÊÕæíÑ: '..maxph[2]..'\n\n?? ãÊä: '..maxtex[2]..'\n\n?? ÓÇíÑ: '..maxoth[2]
+text = text..'\n\n 2âƒ£ '..maxname[2]..' ã€–'..maxuser[2]..'ã€—\n\nğŸ“¨ØªØ¹Ø¯Ø§Ø¯ Ù¾ÛŒØ§Ù… Ù‡Ø§ÛŒ Ø§Ø±Ø³Ø§Ù„ÛŒ: '..maxtex[2] + maxph[2] + maxst[2] + maxoth[2]..'\n\nğŸ‘¾Ø§Ø³ØªÛŒÚ©Ø±: '..maxst[2]..'\n\nğŸ“·ØªØµÙˆÛŒØ±: '..maxph[2]..'\n\nğŸ“ƒ Ù…ØªÙ†: '..maxtex[2]..'\n\nğŸ“¦ Ø³Ø§ÛŒØ±: '..maxoth[2]
 else
-text = text..'\n\n 2? '..maxname[2]..' ?'..maxuser[2]..'?\n\n??ÊÚÏÇÏ íÇã åÇí ÇÑÓÇáí: '..maxtex[2] + maxph[2] + maxst[2] + maxoth[2]..'\n\n??ÇÓÊí˜Ñ: '..maxst[2]..'\n\n??ÊÕæíÑ: '..maxph[2]..'\n\n?? ãÊä: '..maxtex[2]..'\n\n?? ÓÇíÑ: '..maxoth[2]..'\n\n 3? '..maxname[3]..' ?'..maxuser[3]..'?\n\n??ÊÚÏÇÏ íÇã åÇí ÇÑÓÇáí: '..maxtex[3] + maxph[3] + maxst[3] + maxoth[3]..'\n\n??ÇÓÊí˜Ñ: '..maxst[3]..'\n\n??ÊÕæíÑ: '..maxph[3]..'\n\n?? ãÊä: '..maxtex[3]..'\n\n?? ÓÇíÑ: '..maxoth[3]
+text = text..'\n\n 2âƒ£ '..maxname[2]..' ã€–'..maxuser[2]..'ã€—\n\nğŸ“¨ØªØ¹Ø¯Ø§Ø¯ Ù¾ÛŒØ§Ù… Ù‡Ø§ÛŒ Ø§Ø±Ø³Ø§Ù„ÛŒ: '..maxtex[2] + maxph[2] + maxst[2] + maxoth[2]..'\n\nğŸ‘¾Ø§Ø³ØªÛŒÚ©Ø±: '..maxst[2]..'\n\nğŸ“·ØªØµÙˆÛŒØ±: '..maxph[2]..'\n\nğŸ“ƒ Ù…ØªÙ†: '..maxtex[2]..'\n\nğŸ“¦ Ø³Ø§ÛŒØ±: '..maxoth[2]..'\n\n 3âƒ£ '..maxname[3]..' ã€–'..maxuser[3]..'ã€—\n\nğŸ“¨ØªØ¹Ø¯Ø§Ø¯ Ù¾ÛŒØ§Ù… Ù‡Ø§ÛŒ Ø§Ø±Ø³Ø§Ù„ÛŒ: '..maxtex[3] + maxph[3] + maxst[3] + maxoth[3]..'\n\nğŸ‘¾Ø§Ø³ØªÛŒÚ©Ø±: '..maxst[3]..'\n\nğŸ“·ØªØµÙˆÛŒØ±: '..maxph[3]..'\n\nğŸ“ƒ Ù…ØªÙ†: '..maxtex[3]..'\n\nğŸ“¦ Ø³Ø§ÛŒØ±: '..maxoth[3]
 end
 end
 send_msg('channel#id'..cb_extra, text, ok_cb, true)
