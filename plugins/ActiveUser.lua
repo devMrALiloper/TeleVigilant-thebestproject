@@ -289,8 +289,8 @@ end
 end
 return {
   patterns = {
-    "^[!/#]active$",
-	"^active$",
+    "^[!/#][Aa]ctive$",
+	"^[Aa]ctive$",
   }, 
   pre_process = pre_process,
   cron = cron,
