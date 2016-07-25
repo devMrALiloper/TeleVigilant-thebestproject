@@ -24,8 +24,6 @@ local function check_member_super(cb_extra, success, result)
 		  lock_tags = "❌",
 		  lock_emoji = "❌",
 		  lock_username = "❌",
-		  lock_gif = "❌",
-		  lock_audio = "❌",
 
 		  lock_media = "❌",
           flood = '✅',
@@ -36,7 +34,6 @@ local function check_member_super(cb_extra, success, result)
 		  lock_rtl = '❌',
 		  lock_tgservice = '✅',
 		  lock_contacts = '❌',
-		  lock_chat = "❌",
 		  strict = '❌'
         }
       }
@@ -2875,3 +2872,4 @@ return {
 --End supergrpup.lua
 --By @alireza_PT
 --channel : @create_antispam_bot
+--Edited by @Mr_AL_i
