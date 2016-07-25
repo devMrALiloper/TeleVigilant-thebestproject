@@ -1,118 +1,119 @@
---[[
-
-#
-#     @GPMOD
-#   @Dragon_Born
-#      
-
-]]
-local function addword(msg, name)
-    local hash = 'chat:'..msg.to.id..':badword'
-    redis:hset(hash, name, 'newword')
-    return "کلمه جدید به فیلتر کلمات اضافه شد\n>"..name
+local function save_filter(msg, name, value)
+	local hash = nil
+	if msg.to.type == 'chat' then
+		hash = 'chat:'..msg.to.id..':filters'
+	end
+	if msg.to.type == 'user' then
+		return 'فقط در گروه'
+	end
+	if hash then
+		redis:hset(hash, name, value)
+		return "انجام شد"
+	end
 end
 
-local function get_variables_hash(msg)
-
-    return 'chat:'..msg.to.id..':badword'
-
+local function get_filter_hash(msg)
+	if msg.to.type == 'chat' then
+		return 'chat:'..msg.to.id..':filters'
+	end
 end 
 
-local function list_variablesbad(msg)
-  local hash = get_variables_hash(msg)
-
-  if hash then
-    local names = redis:hkeys(hash)
-    local text = 'لیست کلمات غیرمجاز :\n\n'
-    for i=1, #names do
-      text = text..'> '..names[i]..'\n'
-    end
-    return text
-	else
-	return 
-  end
-end
-
-function clear_commandbad(msg, var_name)
-  --Save on redis  
-  local hash = get_variables_hash(msg)
-  redis:del(hash, var_name)
-  return 'پاک شدند'
-end
-
-local function list_variables2(msg, value)
-  local hash = get_variables_hash(msg)
-  
-  if hash then
-    local names = redis:hkeys(hash)
-    local text = ''
-    for i=1, #names do
-	if string.match(value, names[i]) and not is_momod(msg) then
-	if msg.to.type == 'channel' then
-	delete_msg(msg.id,ok_cb,false)
-	else
-	kick_user(msg.from.id, msg.to.id)
-
+local function list_filter(msg)
+	if msg.to.type == 'user' then
+		return 'فقط در گروه'
 	end
-return 
+	local hash = get_filter_hash(msg)
+	if hash then
+		local names = redis:hkeys(hash)
+		local ekhtar = ""
+		local sikout = ""
+		k = 0
+		v = 0
+		for i=1, #names do
+			local value = redis:hget(hash, names[i])
+			if value == 'msg' then
+				k = k+1
+				ekhtar = ekhtar..k.."- "..names[i].."\n"
+			elseif value == 'kick' then
+				v = v+1
+				sikout = sikout..v.."- "..names[i].."\n"
+			end
+		end
+		return "لیست کلمات شامل اخطار:\n______________________________\n"..ekhtar.."\n\nلیست کلمات ممنوع:\n______________________________\n"..sikout
+	end
 end
-      --text = text..names[i]..'\n'
+
+local function pre_process(msg)
+	data = load_data(_config.moderation.data)
+	if not data[tostring(msg.to.id)] then
+		chat_del_user('chat#id'..msg.to.id, 'user#id'..our_id, callback, false)
     end
-  end
-end
-local function get_valuebad(msg, var_name)
-  local hash = get_variables_hash(msg)
-  if hash then
-    local value = redis:hget(hash, var_name)
-    if not value then
-      return
-    else
-      return value
-    end
-  end
-end
-function clear_commandsbad(msg, cmd_name)
-  --Save on redis  
-  local hash = get_variables_hash(msg)
-  redis:hdel(hash, cmd_name)
-  return ''..cmd_name..'  پاک شد'
+	if is_sudo(msg) or is_admin(msg) or is_momod(msg) or tonumber(msg.from.id) == tonumber(our_id) then
+		return
+	end
+	hash = get_filter_hash(msg)
+	if hash then
+		local names = redis:hkeys(hash)
+		for i=1, #names do
+			if msg.text:match(names[i]) then
+				value = redis:hget(hash, names[i])
+				if value == 'msg' then
+					return send_large_msg('chat#id'..msg.to.id, 'کلمه ی "'..names[i]..'" ممنوع است، تکرار نکنید')
+				elseif value == 'kick' then
+					send_large_msg('chat#id'..msg.to.id, 'به علت بکار بردن کلمه ی "'..names[i]..'" از ادامه ی گفتوگو منع میشوید')
+					return chat_del_user('chat#id'..msg.to.id, 'user#id'..msg.from.id, ok_cb, true)
+				end
+			end
+		end
+	end
 end
 
 local function run(msg, matches)
-  if matches[2] == 'addword' then
-  if not is_momod(msg) then
-   return 'only for moderators'
-  end
-  local name = string.sub(matches[3], 1, 50)
-
-  local text = addword(msg, name)
-  return text
-  end
-  if matches[2] == 'badwords' then
-  return list_variablesbad(msg)
-  elseif matches[2] == 'clearbadwords' then
-if not is_momod(msg) then return '_|_' end
-  local asd = '1'
-    return clear_commandbad(msg, asd)
-  elseif matches[2] == 'remword' or matches[2] == 'rw' then
-   if not is_momod(msg) then return '_|_' end
-    return clear_commandsbad(msg, matches[3])
-  else
-    local name = user_print_name(msg.from)
-  
-    return list_variables2(msg, matches[1])
-  end
+	if matches[1]:lower() == "filterlist" then
+		return list_filter(msg)
+	elseif matches[1]:lower() == "filter" and matches[2] == ">" then
+		if not is_momod(msg) then
+			return "شما مدير نيستيد"
+		else
+			return save_filter(msg, matches[3]:lower(), 'msg')
+		end
+	elseif matches[1]:lower() == "filter" and matches[2] == "+" then
+		if not is_momod(msg) then
+			return "شما مدير نيستيد"
+		else
+			return save_filter(msg, matches[3]:lower(), 'kick')
+		end
+	elseif matches[1]:lower() == "filter" and matches[2] == "-" then
+		if not is_momod(msg) then
+			return "شما مدير نيستيد"
+		else
+			return save_filter(msg, matches[3]:lower(), 'none')
+		end
+	else
+		pre_process(msg)
+	end
 end
 
 return {
-  patterns = {
-  "^([!/])(rw) (.*)$",
-  "^([!/])(addword) (.*)$",
-   "^([!/])(remword) (.*)$",
-    "^([!/])(badwords)$",
-    "^([!/])(clearbadwords)$",
-"^(.+)$",
-	   
-  },
-  run = run
-}
+	description = "Set and Get Variables", 
+	usagehtm = '<tr><td align="center">filter > کلمه</td><td align="right">این دستور یک کلمه را ممنوع میکند و اگر توسط کاربری این کلمه استفاده شود، به او تذکر داده خواهد شد</td></tr>'
+	..'<tr><td align="center">filter + کلمه</td><td align="right">این دستور کلمه ای را فیلتر میکند به طوری که اگر توسط کاربری استفاده شود، ایشان کیک میگردند</td></tr>'
+	..'<tr><td align="center">filter - کلمه</td><td align="right">کلمه ای را از ممنوعیت یا فیلترینگ خارج میکند</td></tr>'
+	..'<tr><td align="center">filterlist</td><td align="right">لیست کلمات فیلتر شده</td></tr>',
+	usage = {
+		user = {
+			"filterlist : لیست فیلتر شده ها",
+		},
+		moderator = {
+			"filter > (word) : اخطار کردن لغت",
+			"filter + (word) : ممنوع کردن لغت",
+			"filter - (word) : حذف از فیلتر",
+		},
+	},
+	patterns = {
+		"^([Ff]ilter) (.+) (.*)$",
+		"^([Ff]ilterlist)$",
+		"(.*)"
+	},
+	run = run,
+} 
