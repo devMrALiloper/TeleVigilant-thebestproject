@@ -1,9 +1,9 @@
-﻿do
+do
 local function action_by_reply22(extra, success, result)
 if result.media then
 
 
-return  send_msg(extra.receiver, 'متن زیر عکس👇👇\n\n_______________________\n\@Spiran_TG'.. result.media.caption, ok_cb, true)
+return  send_msg(extra.receiver, 'متن زیر عکس👇👇\n\n_______________________\n'.. result.media.caption, ok_cb, true)
 end
 if result.service then
 return  send_msg(extra.receiver, result.service.type, ok_cb, true)
