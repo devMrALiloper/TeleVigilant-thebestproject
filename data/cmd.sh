@@ -21,7 +21,7 @@ memUsedPrc=$((($memUsed_b*100)/$memTotal_b))
 
 echo "🔱 SPIRAN TM SERVER INFO:"
 echo "➖➖➖➖"
-echo "✅ Memory: $memUsed_m MB (4GB) \n💠 $memUsedPrc% used !"
+echo "✅ Memory: $memUsed_m MB (2GB) \n💠 $memUsedPrc% used !"
 echo "➖➖"
 echo '✅ CPU Usage : '"$CPUPer"'%'
 echo "➖➖"
