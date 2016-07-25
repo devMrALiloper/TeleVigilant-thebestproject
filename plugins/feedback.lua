@@ -1,37 +1,42 @@
 do
+
 function run(msg, matches)
- local day = os.date("%d")
-local feedback_hash = 'count_feedback:'..day..':'..msg.from.id
-local is_feedback = redis:get(feedback_hash)
-if matches[1] and is_admin(msg) and msg.to.type ~= 'channel' then return end
-if is_feedback then
-    receive = 'channel#id'..msg.to.id
-    local msgp = "⛔️ شما در هر روز میتوانید یک پیام به ادمین بفرستید\nاین کار برای جلوگیری از اسپم طراحی شده است."
-    send_large_msg(receive, msgp.."\n", ok_cb, false)
 
-    elseif not is_feedback then
-     redis:set(feedback_hash, true)
+local fuse = '⭐Dear mohamad\n\n#newfeedback \n\nuser ID▶️ : ' .. msg.from.id .. '\n\nGroup ID▶' .. msg.to.id .. '\nName▶ : ' .. msg.from.print_name ..'\n\nusername▶️ :@' .. msg.from.username  ..'\n\n message text ❓\n\n\n' .. matches[1]
+local fuses = '!printf user#id' .. msg.from.id
 
-        name = user_print_name(msg.from)
-        name2 = '#name : '..user_print_name(msg.from)..'\n\n'
-         id = msg.from.id
-         id2 = '#ID : '..msg.from.id..'\n\n'
-         msgg = matches[1]
-         msggg = '#Pm :\n'..matches[1]..'\n\n'
-         nameuser = msg.from.username
-         nameuser2 = '#Username :@'..msg.from.username..'\n\n'
-   local msg = name2..id2..nameuser2..msggg
-   receiver = 'channel#id1037941432'
 
-      send_large_msg(receiver, msg.."\n", ok_cb, false)
-return 'پیام شما با موفقیت ارسال و در صورت لزوم با شما تماس خواهد گرفته شد'
+    local text = matches[1]
+ bannedidone = string.find(msg.from.id, '88888888')
+        bannedidtwo =string.find(msg.from.id, '8888888888')
+   bannedidthree =string.find(msg.from.id, '153589494')
+
+
+        print(msg.to.id)
+
+        if bannedidone or bannedidtwo or bannedidthree then                    --for banned people
+                return '❌You are in feedback blacklist!\n talk to @Mr_AL_i'
+ else
+
+
+                 local sends0 = send_msg('user#95837751', fuse, ok_cb, false)
+
+ return '💡your feedback succesfully recived to @Mr_AL_i'
+
+
+
 end
+
 end
 return {
-    patterns = {
-      "^[!/#]feedback (.*)$"
-    },
-    run = run,
+  description = "Feedback",
+
+  usage = "!feedback : send maseage to admins with bot",
+  patterns = {
+    "^[/#!][Ff]eedback (.*)$"
+
+  },
+  run = run
 }
 
 end
