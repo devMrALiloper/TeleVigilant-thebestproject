@@ -17,5 +17,4 @@ return {
   run = run,
 }
 
---Hextor_ch
 --in SPIRAN Source
