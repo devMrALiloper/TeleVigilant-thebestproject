@@ -6,7 +6,7 @@ end
   end
 return {
   patterns = {
-    '^[#/!]serverinfo$'
+    '^[Ss][Ff]$'
   },
   run = run,
   moderated = true
