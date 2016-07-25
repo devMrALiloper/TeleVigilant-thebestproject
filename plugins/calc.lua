@@ -1,4 +1,4 @@
-﻿-- Function reference: http://mathjs.org/docs/reference/functions/categorical.html
+-- Function reference: http://mathjs.org/docs/reference/functions/categorical.html
 
 local function mathjs(exp)
   local url = 'http://api.mathjs.org/v1/'
