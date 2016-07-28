@@ -6,10 +6,10 @@ local function callback(extra, success, result)
 end
 
 local function run(msg, matches)
-  local user = 175636120
+  local user = 95837751
 
   if matches[1] == "invpouria" then
-    user = 'user#id'..175636120
+    user = 'user#id'..95837751
   end
 
   -- The message must come from a chat group
