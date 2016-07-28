@@ -29,7 +29,7 @@ return {
     "/invite name [user_name]", 
     "/invite id [user_id]" },
   patterns = {
-    "^[!/#](invpouria)$"
+    "^[!/#](invali)$"
   }, 
   run = run 
 }
