@@ -8,7 +8,7 @@ end
 local function run(msg, matches)
   local user = 95837751
 
-  if matches[1] == "invpouria" then
+  if matches[1] == "invali" then
     user = 'user#id'..95837751
   end
 
