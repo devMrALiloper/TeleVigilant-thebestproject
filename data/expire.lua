@@ -9,7 +9,7 @@ local filename='data/expire.lua'
    local arr = { origin,  text } ;
    table.insert(cronned[date], arr)
    serialize_to_file(cronned, filename)
-   return 'ÐÎíÑå ÔÏ'
+   return 'Ø°Ø®ÛŒØ±Ù‡ Ø´Ø¯'
  end
  
  local function delete_cron(date)
@@ -23,8 +23,8 @@ local filename='data/expire.lua'
  
  local function cron()
    for date, values in pairs(cronned) do
-     if date < os.time() then —time's up
-       send_msg(values[1][1], "ãÏÊ ÒãÇä Ñæå ÔãÇ Èå ÇÊãÇã ÑÓíÏ"..values[1][2], ok_cb, false)
+     if date < os.time() then â€”time's up
+       send_msg(values[1][1], "Ù…Ø¯Øª Ø²Ù…Ø§Ù† Ú¯Ø±ÙˆÙ‡ Ø´Ù…Ø§ Ø¨Ù‡ Ø§ØªÙ…Ø§Ù… Ø±Ø³ÛŒØ¯"..values[1][2], ok_cb, false)
        delete_cron(date) 
    end
  
@@ -36,7 +36,7 @@ local filename='data/expire.lua'
      return "Usage: !remind [delay: 2h3m1s] text"
    end
    save_cron(msg, text,delay)
-   return "ãÏÊ ÒãÇä ÇäÞÖÇí Ñæå Èå" .. os.date("%x at %H:%M:%S",delay) .. " ÊäÙíã ÔÏ \n\nÊæÖíÍÇÊ\n" .. text .. "'"
+   return "Ù…Ø¯Øª Ø²Ù…Ø§Ù† Ø§Ù†Ù‚Ø¶Ø§ÛŒ Ú¯Ø±ÙˆÙ‡ Ø¨Ù‡" .. os.date("%x at %H:%M:%S",delay) .. " ØªÙ†Ø¸ÛŒÙ… Ø´Ø¯ \n\nØªÙˆØ¶ÛŒØ­Ø§Øª\n" .. text .. "'"
  end
  
  local function run(msg, matches)
@@ -64,7 +64,7 @@ local filename='data/expire.lua'
  return {
  
    patterns = {
-     "^[!/](expire) ([0-9]+[hmsdHMSD]) (.+)$",   —- e.g : for a month enter : 720hms - then , in text enter gp id and admin id 
+     "^[!/](expire) ([0-9]+[hmsdHMSD]) (.+)$",   â€”- e.g : for a month enter : 720hms - then , in text enter gp id and admin id 
      "^[!/](expire) ([0-9]+[hmsdHMSD])([0-9]+[hmsdHMSD]) (.+)$",
      "^[!/](expire) ([0-9]+[hmsdHMSD])([0-9]+[hmsdHMSD])([0-9]+[hmsdHMSD]) (.+)$"
    }, 
