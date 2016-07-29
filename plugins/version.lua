@@ -2,7 +2,7 @@ do
 
 function run(msg, matches)
   return [[
-  <code>SPIRAN🌐BOT --VERSION 2.0--
+  <code>SPIRAN🌐BOT</code> --VERSION 2.0--
   -------------------
   An advanced and powerful administration bot based on Source Who #Mr_AL_i Writed on LUA Under The GNU General Public License. 
   -------------------
@@ -17,7 +17,7 @@ function run(msg, matches)
   -------------------
   Managers : 
   ATTACKER --@XxattackerxX--
-  M-Developer --@Developer_001--</code>
+  M-Developer --@Developer_001--
 ]]
 end
 
