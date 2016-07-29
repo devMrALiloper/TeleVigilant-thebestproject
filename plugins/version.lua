@@ -2,7 +2,7 @@ do
 
 function run(msg, matches)
   return [[
-  <code>SPIRAN🌐BOT</code> --VERSION 2.0--
+  SPIRAN🌐BOT >>VERSION 2.0<<
   -------------------
   An advanced and powerful administration bot based on Source Who #Mr_AL_i Writed on LUA Under The GNU General Public License. 
   -------------------
@@ -13,16 +13,16 @@ function run(msg, matches)
   Robot ID : @Spiran_TG
   -------------------
   Developer & SUDO : άQά </🅰ιɪ>
-  --@Mr_AL_i--
+  >@Mr_AL_i<
   -------------------
   Managers : 
-  ATTACKER --@XxattackerxX--
-  M-Developer --@Developer_001--
+  ATTACKER >@XxattackerxX<
+  M-Developer >@Developer_001<
 ]]
 end
 
 return {
-  description = "",
+  description = "Version Of #Bot",
   usage = "",
   patterns = {
      "^[/!#][Vv]ersion$",
