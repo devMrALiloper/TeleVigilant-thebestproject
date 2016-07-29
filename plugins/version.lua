@@ -13,12 +13,11 @@ function run(msg, matches)
   Robot ID : @Spiran_TG
   -------------------
   Developer & SUDO : άQά </🅰ιɪ>
-  >@Mr_AL_i<
+  --@Mr_AL_i--
   -------------------
   Managers : 
-  ATTACKER >@XxattackerxX<
-  M-Developer >@Developer_001<
-  </code>
+  ATTACKER --@XxattackerxX--
+  M-Developer --@Developer_001--</code>
 ]]
 end
 
