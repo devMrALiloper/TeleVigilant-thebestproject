@@ -17,7 +17,8 @@ function run(msg, matches)
   -------------------
   Managers : 
   ATTACKER >@XxattackerxX<
-  M-Developer >@Developer_001< </code>
+  M-Developer >@Developer_001<
+  </code>
 ]]
 end
 
