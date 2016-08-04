@@ -120,18 +120,18 @@ end
 
 --Get and output info about supergroup
 local function callback_info(cb_extra, success, result)
-local title ="Info for SuperGroup: ["..result.title.."]\n\n"
-local admin_num = "Admin count: "..result.admins_count.."\n"
-local user_num = "User count: "..result.participants_count.."\n"
-local kicked_num = "Kicked user count: "..result.kicked_count.."\n"
-local channel_id = "ID: "..result.peer_id.."\n"
+local admin_num = "🔘Admin count > "..result.admins_count.."\n"
+local user_num = "⚪️User count > "..result.participants_count.."\n"
+local kicked_num = "🔘 Kicked user count > "..result.kicked_count.."\n"
+local channel_id = "⚪️ GP ID > "..result.peer_id.."\n"
+local channel_name = "🔘 GP Name > "..result.print_name.."\n"
 if result.username then
-	channel_username = "Username: @"..result.username
+  channel_username = "Username > @"..result.username
 else
-	channel_username = ""
+  channel_username = "@SPIRAN_CHANNEL"
 end
-local text = title..admin_num..user_num..kicked_num..channel_id..channel_username
-    send_large_msg(cb_extra.receiver, text)
+local text = admin_num..user_num..kicked_num..channel_id..channel_username..channel_name
+  send_photo2(cb_extra.receiver, "./data/photos/channel_photo_"..result.peer_id..".jpg", text, ok_cb, false)  
 end
 
 --Get and output members of supergroup
