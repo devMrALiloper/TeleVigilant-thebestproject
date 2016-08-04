@@ -128,7 +128,7 @@ local channel_name = "🔘 GP Name > "..result.print_name.."\n"
 if result.username then
   channel_username = "Username > @"..result.username
 else
-  channel_username = "@SPIRAN_CHANNEL"
+  channel_username = ""
 end
 local text = admin_num..user_num..kicked_num..channel_id..channel_username..channel_name
   send_photo2(cb_extra.receiver, "./data/photos/channel_photo_"..result.peer_id..".jpg", text, ok_cb, false)  
