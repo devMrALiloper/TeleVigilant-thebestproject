@@ -5,18 +5,18 @@ local group_lang = redis:hget(hash,'lang')
 if matches[1] == 'setlang' and  matches[2] == 'en' and is_owner(msg) then 
     
    redis:hdel(hash,'lang')
-        return 'done\ngroup lang set to : en'
+        return 'group lang set to : en'
 end
 
 
 
 if matches[1] == 'setlang' and matches[2] == 'fa' and is_owner(msg) then
 redis:hset(hash,'lang',matches[2])
-        return 'تبریک زیان گروه شما فارسی شد'
+        return 'زبان گروه تنظیم شد به : FA'
 end
 if matches[1] == 'lang' then
 if group_lang then 
-return "زبان گروه شما فارسی است"
+return "زبان گروه شما هم اکنون بر روی فارسی قرار دارد"
 else
 return "Group lang : en"
 end
@@ -31,6 +31,5 @@ return {
   run = run
 }
 end
---setlang.end
---by @PartTeam
---Thanks for @M_O_T_A_F_E_G_H_I_N
+--edit by @CliApi
+--Our channel : @create_antispam_bot
