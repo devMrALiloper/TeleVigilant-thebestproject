@@ -1,7 +1,3 @@
---[[با تچکر از نویسنده اصلی که نمیدونم کی هست 
-فیکس شده توسط : @sina021
-کانال ما: @boss_ch
-کپی بدون ذکر منبع هم بتخمم]]
 
 local function get_variables_hash(msg)
   if msg.to.type == 'chat' or msg.to.type == 'channel' then
