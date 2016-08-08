@@ -1,5 +1,4 @@
---by @alireza_PT
---Our channel: @create_antispam_bot
+
 
 do
 
