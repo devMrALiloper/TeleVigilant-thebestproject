@@ -1,9 +1,4 @@
---[[ 
-در صورت کپی از محتوا منبع را ذکر کنید
-@alireza_PT
-@CliApi
-@Create_antispam_bot 
---]]
+
  local function pre_process(msg) 
   local alirezapt = msg['id']
   local user = msg.from.id
@@ -15,7 +10,7 @@
       redis:del(hash) 
       kick_user(user, chat)
     else
-      local text = "کاربر ["..msg.from.first_name.."] از فوروارد کردن مطالب خودداری کنید( @create_antispam_bot )\nدر صورت تکرار از گروه حذف خواهید شد( @create_antispam_bot )" 
+      local text = "کاربر ["..msg.from.first_name.."] از فوروارد کردن مطالب خودداری کنید( @create_ant)\nدر صورت تکرار از گروه حذف خواهید شد( @create_antispam_bot )" 
       reply_msg(alirezapt, text, ok_cb, true) 
       redis:set(hash, true)
     end
@@ -30,10 +25,10 @@ local function run(msg, matches)
     if is_momod(msg) then 
       local hash = 'mate:'..msg.to.id 
       redis:set(hash, true) 
-      local text = ' انجام شد\nاخطار برای فوروارد مطالب فعال شد( @create_antispam_bot )'
+      local text = ' انجام شد\nاخطار برای فوروارد مطالب فعال شد'
       reply_msg(alirezapt, text, ok_cb, true) 
     else 
-      local text = 'شما مجاز نیستید ( @create_antispam_bot )' 
+      local text = 'شما مجاز نیستید' 
       reply_msg(alirezapt, text, ok_cb, true) 
     end
   end
@@ -41,10 +36,10 @@ local function run(msg, matches)
     if is_momod(msg) then 
       local hash = 'mate:'..msg.to.id 
       redis:del(hash) 
-      local text = ' انجام شد\nفوروارد کردن مطالب مجاز شد( @create_antispam_bot )'
+      local text = ' انجام شد\nفوروارد کردن مطالب مجاز شد'
       reply_msg(alirezapt, text, ok_cb, true) 
     else
-      local text = 'شما مجاز نیستید ( @create_antispam_bot )' 
+      local text = 'شما مجاز نیستید' 
       reply_msg(alirezapt, text, ok_cb, true) 
     end 
   end 
@@ -65,3 +60,5 @@ run = run,
 @CliApi
 @Create_antispam_bot 
 --]]
+--@Mr_AL_i
+--@TeleVigilant_Team
