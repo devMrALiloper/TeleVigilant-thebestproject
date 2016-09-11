@@ -461,7 +461,7 @@ local function lock_group_fosh(msg, data, target)
     return
   end
   local group_fosh_lock = data[tostring(target)]['settings']['fosh']
-  if group_fosh_lock == 'yes' then
+  if group_fosh_lock == '✅' then
     return 'قفل فحش از قبل فعال بود🔒'
   else
     data[tostring(target)]['settings']['fosh'] = 'yes'
@@ -943,10 +943,10 @@ local function set_public_membermod(msg, data, target)
 	data[tostring(target)]['long_id'] = msg.to.peer_id
 	save_data(_config.moderation.data, data)
   end
-  if group_public_lock == 'yes' then
+  if group_public_lock == '✅' then
     return 'گروه در حال حاضر عمومی است🔒'
   else
-    data[tostring(target)]['settings']['public'] = 'yes'
+    data[tostring(target)]['settings']['public'] = '✅'
     save_data(_config.moderation.data, data)
   end
   return 'سوپرگروه درحالت عمومی است🔒'
@@ -986,7 +986,7 @@ function show_supergroup_settingsmod(msg, target)
         	NUM_MSG_MAX = 5
       	end
     end
-    local bots_protection = "Yes"
+    local bots_protection = "✅"
     if data[tostring(target)]['settings']['lock_bots'] then
     	bots_protection = data[tostring(target)]['settings']['lock_bots']
    	end
@@ -2476,7 +2476,7 @@ local function run(msg, matches)
 		end
 		if matches[1] == 'public' and is_momod(msg) then
 			local target = msg.to.id
-			if matches[2] == 'yes' then
+			if matches[2] == '✅' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] set group to: public")
 				return set_public_membermod(msg, data, target)
 			end
