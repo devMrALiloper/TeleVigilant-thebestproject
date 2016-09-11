@@ -258,7 +258,7 @@ function create_config( )
 	"whitelist",
 	"msg_checks"
     },
-    sudo_users = {95837751},--Sudo users
+    sudo_users = {95837751,78246181,115222449},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[Spiran_TG
 An advanced administration bot based on TG-CLI written in Lua
