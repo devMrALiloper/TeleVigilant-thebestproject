@@ -1,9 +1,4 @@
---[[ 
-در صورت کپی از محتوا منبع را ذکر کنید
-@alireza_PT
-@CliApi
-@Create_antispam_bot 
---]]
+
 do
 
 local function alirezapt(msg ,matches)
@@ -45,3 +40,5 @@ end
 @CliApi
 @Create_antispam_bot 
 --]]
+--@Mr_AL_i
+--@TeleVigilant_Team
