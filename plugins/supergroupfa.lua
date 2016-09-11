@@ -195,10 +195,10 @@ local function lock_group_links(msg, data, target)
     return
   end
   local group_link_lock = data[tostring(target)]['settings']['lock_link']
-  if group_link_lock == 'yes' then
+  if group_link_lock == '✅' then
     return 'فرستادن لینک ازقبل قفل بود🔒'
   else
-    data[tostring(target)]['settings']['lock_link'] = 'yes'
+    data[tostring(target)]['settings']['lock_link'] = '✅'
     save_data(_config.moderation.data, data)
     return 'لینک قفل شد🔒'
   end
@@ -223,10 +223,10 @@ local function lock_group_number(msg, data, target)
     return
   end
   local group_number_lock = data[tostring(target)]['settings']['lock_number']
-  if group_number_lock == 'yes' then
+  if group_number_lock == '✅' then
     return 'فرستادن عدد از قبل قفل بود🔒'
   else
-    data[tostring(target)]['settings']['lock_number'] = 'yes'
+    data[tostring(target)]['settings']['lock_number'] = '✅'
     save_data(_config.moderation.data, data)
     return 'عدد قفل شد🔒'
   end
@@ -251,10 +251,10 @@ local function lock_group_all(msg, data, target)
     return
   end
   local group_all_lock = data[tostring(target)]['settings']['all']
-  if group_all_lock == 'yes' then
+  if group_all_lock == '✅' then
     return 'تنظیمات کلی قفل بود🔒'
   else
-    data[tostring(target)]['settings']['all'] = 'yes'
+    data[tostring(target)]['settings']['all'] = '✅'
     save_data(_config.moderation.data, data)
     return 'تنظیمات کلی قفل شد🔒'
   end
@@ -279,10 +279,10 @@ local function lock_group_etehad(msg, data, target)
     return
   end
   local group_etehad_lock = data[tostring(target)]['settings']['etehad']
-  if group_etehad_lock == 'yes' then
+  if group_etehad_lock == '✅' then
     return 'تنظیم اتحاداز قبل قفل بود🔒'
   else
-    data[tostring(target)]['settings']['etehad'] = 'yes'
+    data[tostring(target)]['settings']['etehad'] = '✅'
     save_data(_config.moderation.data, data)
     return 'تنظیم اتحاد قفل شد🔒'
   end
@@ -321,10 +321,10 @@ local function lock_group_leave(msg, data, target)
     return
   end
   local group_leave_lock = data[tostring(target)]['settings']['leave']
-  if group_leave_lock == 'yes' then
+  if group_leave_lock == '✅' then
     return 'قفل لفت ازقبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['leave'] = 'yes'
+    data[tostring(target)]['settings']['leave'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل لفت فعال شد🔒'
   end
@@ -349,10 +349,10 @@ local function lock_group_operator(msg, data, target)
     return
   end
   local group_operator_lock = data[tostring(target)]['settings']['operator']
-  if group_operator_lock == 'yes' then
+  if group_operator_lock == '✅' then
     return 'قفل اپراتور ازقبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['operator'] = 'yes'
+    data[tostring(target)]['settings']['operator'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل اپراتورفعال شد🔒'
   end
@@ -377,10 +377,10 @@ local function lock_group_reply(msg, data, target)
     return
   end
   local group_reply_lock = data[tostring(target)]['settings']['reply']
-  if group_reply_lock == 'yes' then
+  if group_reply_lock == '✅' then
     return 'قفل ریپلی ازقبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['reply'] = 'yes'
+    data[tostring(target)]['settings']['reply'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل ریپلی فعال شد🔒'
   end
@@ -405,10 +405,10 @@ local function lock_group_username(msg, data, target)
     return
   end
   local group_username_lock = data[tostring(target)]['settings']['username']
-  if group_username_lock == 'yes' then
+  if group_username_lock == '✅' then
     return 'قفل یوزرنیم ازقبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['username'] = 'yes'
+    data[tostring(target)]['settings']['username'] = '✅'
     save_data(_config.moderation.data, data)
     return 'یوزرنیم قفل شد🔒'
   end
@@ -433,10 +433,10 @@ local function lock_group_media(msg, data, target)
     return
   end
   local group_media_lock = data[tostring(target)]['settings']['media']
-  if group_media_lock == 'yes' then
+  if group_media_lock == '✅' then
     return 'قفل رسانه ازقبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['media'] = 'yes'
+    data[tostring(target)]['settings']['media'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل رسانه فعال شد🔒'
   end
@@ -489,10 +489,10 @@ local function lock_group_join(msg, data, target)
     return
   end
   local group_join_lock = data[tostring(target)]['settings']['join']
-  if group_join_lock == 'yes' then
+  if group_join_lock == '✅' then
     return 'قفل جوین از قبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['join'] = 'yes'
+    data[tostring(target)]['settings']['join'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل جوین فعال شد🔒'
   end
@@ -517,10 +517,10 @@ local function lock_group_fwd(msg, data, target)
     return
   end
   local group_fwd_lock = data[tostring(target)]['settings']['fwd']
-  if group_fwd_lock == 'yes' then
+  if group_fwd_lock == '✅' then
     return 'قفل فرواد از قبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['fwd'] = 'yes'
+    data[tostring(target)]['settings']['fwd'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل فرواد فعال شد🔒'
   end
@@ -545,10 +545,10 @@ local function lock_group_english(msg, data, target)
     return
   end
   local group_english_lock = data[tostring(target)]['settings']['english']
-  if group_english_lock == 'yes' then
+  if group_english_lock == '✅' then
     return 'قفل انگلیسی ازقبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['english'] = 'yes'
+    data[tostring(target)]['settings']['english'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل انگلیسی فعال شد🔒'
   end
@@ -573,10 +573,10 @@ local function lock_group_emoji(msg, data, target)
     return
   end
   local group_emoji_lock = data[tostring(target)]['settings']['emoji']
-  if group_emoji_lock == 'yes' then
+  if group_emoji_lock == '✅' then
     return 'قفل اموجی ازقبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['emoji'] = 'yes'
+    data[tostring(target)]['settings']['emoji'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل اموجی فعال شد🔒'
   end
@@ -601,10 +601,10 @@ local function lock_group_tag(msg, data, target)
     return
   end
   local group_tag_lock = data[tostring(target)]['settings']['tag']
-  if group_tag_lock == 'yes' then
+  if group_tag_lock == '✅' then
     return 'قفل تگ ازقبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['tag'] = 'yes'
+    data[tostring(target)]['settings']['tag'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل تگ فعال شد🔒'
   end
@@ -632,10 +632,10 @@ local function lock_group_spam(msg, data, target)
     return "فقط برای مدیرات⚠️"
   end
   local group_spam_lock = data[tostring(target)]['settings']['lock_spam']
-  if group_spam_lock == 'yes' then
+  if group_spam_lock == '✅' then
     return 'قفل اسپم سوپرگروه ازقبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['lock_spam'] = 'yes'
+    data[tostring(target)]['settings']['lock_spam'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل اسپم سوپر گروه فعال شد🔒'
   end
@@ -660,10 +660,10 @@ local function lock_group_flood(msg, data, target)
     return
   end
   local group_flood_lock = data[tostring(target)]['settings']['flood']
-  if group_flood_lock == 'yes' then
+  if group_flood_lock == '✅' then
     return 'قفل فلودازقبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['flood'] = 'yes'
+    data[tostring(target)]['settings']['flood'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل فلودفعال شد🔒'
   end
@@ -688,10 +688,10 @@ local function lock_group_arabic(msg, data, target)
     return
   end
   local group_arabic_lock = data[tostring(target)]['settings']['lock_arabic']
-  if group_arabic_lock == 'yes' then
+  if group_arabic_lock == '✅' then
     return 'قفل عربی ازقبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['lock_arabic'] = 'yes'
+    data[tostring(target)]['settings']['lock_arabic'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل عربی فعال شد🔒'
   end
@@ -717,10 +717,10 @@ local function lock_group_membermod(msg, data, target)
     return
   end
   local group_member_lock = data[tostring(target)]['settings']['lock_member']
-  if group_member_lock == 'yes' then
+  if group_member_lock == '✅' then
     return 'قفل اعضا ازقبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['lock_member'] = 'yes'
+    data[tostring(target)]['settings']['lock_member'] = '✅'
     save_data(_config.moderation.data, data)
   end
   return 'قفل اعضا فعال شد🔒'
@@ -745,10 +745,10 @@ local function lock_group_rtl(msg, data, target)
     return
   end
   local group_rtl_lock = data[tostring(target)]['settings']['lock_rtl']
-  if group_rtl_lock == 'yes' then
+  if group_rtl_lock == '✅' then
     return 'قفل ارتی ال ازقبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['lock_rtl'] = 'yes'
+    data[tostring(target)]['settings']['lock_rtl'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل آر تی ال فعال شد🔒'
   end
@@ -773,10 +773,10 @@ local function lock_group_tgservice(msg, data, target)
     return
   end
   local group_tgservice_lock = data[tostring(target)]['settings']['lock_tgservice']
-  if group_tgservice_lock == 'yes' then
+  if group_tgservice_lock == '✅' then
     return 'سرویس تلگرام ازقبل قفل بود🔒'
   else
-    data[tostring(target)]['settings']['lock_tgservice'] = 'yes'
+    data[tostring(target)]['settings']['lock_tgservice'] = '✅'
     save_data(_config.moderation.data, data)
     return 'سرویس تلگرام قفل شد🔒'
   end
@@ -801,10 +801,10 @@ local function lock_group_sticker(msg, data, target)
     return
   end
   local group_sticker_lock = data[tostring(target)]['settings']['lock_sticker']
-  if group_sticker_lock == 'yes' then
+  if group_sticker_lock == '✅' then
     return 'قفل استیکر از قبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['lock_sticker'] = 'yes'
+    data[tostring(target)]['settings']['lock_sticker'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل استیکر فعال شد🔒'
   end
@@ -829,10 +829,10 @@ local function lock_group_bots(msg, data, target)
     return 
   end
   local group_bots_lock = data[tostring(target)]['settings']['lock_bots']
-  if group_bots_lock == 'yes' then
+  if group_bots_lock == '✅' then
     return 'قفل ربات از قبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['lock_bots'] = 'yes'
+    data[tostring(target)]['settings']['lock_bots'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل بات فعال شد🔒'
   end
@@ -857,10 +857,10 @@ local function lock_group_contacts(msg, data, target)
     return
   end
   local group_rtl_lock = data[tostring(target)]['settings']['lock_contacts']
-  if group_contacts_lock == 'yes' then
+  if group_contacts_lock == '✅' then
     return 'قفل شماره ازقبل فعال بود🔒'
   else
-    data[tostring(target)]['settings']['lock_contacts'] = 'yes'
+    data[tostring(target)]['settings']['lock_contacts'] = '✅'
     save_data(_config.moderation.data, data)
     return 'قفل شماره فعال شد🔒'
   end
@@ -885,10 +885,10 @@ local function enable_strict_rules(msg, data, target)
     return
   end
   local group_strict_lock = data[tostring(target)]['settings']['strict']
-  if group_strict_lock == 'yes' then
+  if group_strict_lock == '✅' then
     return 'تنظیمات سخت گیرانه ازقبل فعال بود🔓'
   else
-    data[tostring(target)]['settings']['strict'] = 'yes'
+    data[tostring(target)]['settings']['strict'] = '✅'
     save_data(_config.moderation.data, data)
     return 'تنظیمات سخت گیرانه فعال شد🔒'
   end
