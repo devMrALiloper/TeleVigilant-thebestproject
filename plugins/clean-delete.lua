@@ -1,5 +1,3 @@
---return by @blackwolf_admin 
--- channel @open_sources
 
 local function check_member_super_deleted(cb_extra, success, result)
 local receiver = cb_extra.receiver
@@ -30,3 +28,5 @@ run = run,
 }
 --return by @blackwolf_admin 
 -- channel @open_sources
+--@Mr_AL_i
+--@TeleVigilant_Team
