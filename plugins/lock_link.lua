@@ -26,3 +26,4 @@ return {patterns = {
 "[Ww][Ww][Ww]:",
 }, run = run}
 --Thanks To Creed
+--@Mr_AL_i
