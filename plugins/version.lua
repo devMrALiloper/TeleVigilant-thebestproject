@@ -2,22 +2,29 @@ do
 
 function run(msg, matches)
   return [[
-  SPIRAN🌐BOT >>VERSION 2.0<<
+  TeleVigilant🌐BOT >>VERSION 2.0<<
   -------------------
   An advanced and powerful administration bot based on Source Who #Mr_AL_i Writed on LUA Under The GNU General Public License. 
   -------------------
   EDITED ON TELESEED
   -------------------
-  CHANNEL : @SPIRAN_CHANNEL
+  CHANNEL : @TeleVigilant_Team
   -------------------
-  Robot ID : @Spiran_TG
+  Robot ID : @TeleVigilant_Supe
   -------------------
   Developer & SUDO : άQά </🅰ιɪ>
   >@Mr_AL_i<
+  ---
+  SUDO : HajiHAck
+  >@HajiSudo<
+  ---
+  SUDO : Mehdi , KING
+  >@MKH_KING<
   -------------------
   Managers : 
-  ATTACKER >@XxattackerxX<
-  M-Developer >@Developer_001<
+  There are some #UNKNOWN managers...
+  * * * * * * * * * * * * *
+  TeleVigilant TEAM😘
 ]]
 end
 
