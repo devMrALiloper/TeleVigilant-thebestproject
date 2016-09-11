@@ -236,7 +236,8 @@ https://github.com/SEEDTEAM/TeleSeed
 
 Our team!
 aQa.ALi (@Mr_AL-i)
-DRAGON (@Developer_001)
+.
+.
 
 Special thanks to:
 Juan Potato
@@ -245,7 +246,7 @@ Topkecleon
 Vamptacus
 
 Our channels:
-Persian: @SPIRAN_CHANNEL
+Persian: @TeleVigilant_Team
 ]],
     help_text_realm = [[
 دستورات ریلیم(گروه) :
@@ -328,13 +329,13 @@ Persian: @SPIRAN_CHANNEL
  
 * فقط admins و sudo می‌توانند از  فرمان‌های setowner ، و اطلاعات يوزر موردنظر و دستورات خاص استفاده كنند.
 
-🔰Spiran_TG🔰@SPIRAN_CHANNEL
+🔰@TeleVigilant_Super🔰@TeleVigilant_Team
 FOLLOW US...
-SPIRAN TEAM😘
+TeleVigilant TEAM😘
 
 ]],
     help_text = [[
-راهنمای دستورات اسپیران :
+دستورات تله ویگیلانت :
 🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
 !kick [username|id]
 اخراج یوزرنیم موردنظر حتی با ریپلای
@@ -423,9 +424,9 @@ SPIRAN TEAM😘
  
 * فقط admins و sudo می‌توانند از  فرمان‌های setowner ، و اطلاعات يوزر موردنظر و دستورات خاص استفاده كنند.
 
-🔰Spiran_TG🔰@SPIRAN_CHANNEL
+🔰@TeleVigilant_Super🔰@TeleVigilant_Team
 FOLLOW US...
-SPIRAN TEAM😘
+TeleVigilant TEAM😘
 
 ]]
   }
