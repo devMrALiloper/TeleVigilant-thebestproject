@@ -10,7 +10,7 @@
       redis:del(hash) 
       kick_user(user, chat)
     else
-      local text = "کاربر ["..msg.from.first_name.."] از فوروارد کردن مطالب خودداری کنید( @create_ant)\nدر صورت تکرار از گروه حذف خواهید شد( @create_antispam_bot )" 
+      local text = "کاربر ["..msg.from.first_name.."] از فوروارد کردن مطالب خودداری کنید\nدر صورت تکرار از گروه حذف خواهید شد" 
       reply_msg(alirezapt, text, ok_cb, true) 
       redis:set(hash, true)
     end
