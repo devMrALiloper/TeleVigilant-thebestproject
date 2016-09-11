@@ -2814,4 +2814,6 @@ return {
   pre_process = pre_process
 }
 --End supergroupfa.lua
---by @Part_Team
+--Tnx to @Part_Team
+--@Mr_AL_i
+--@TeleVigilant_Team
