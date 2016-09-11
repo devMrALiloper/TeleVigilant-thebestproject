@@ -1,4 +1,4 @@
-# [SPIRAN](https://telegram.me/Spiran_TG)
+# [TeleVigilant](https://telegram.me/TeleVigilant_Super)
 
 [![Join the chat at https://gitter.im/SEEDTEAM/TeleSeed](https://badges.gitter.im/SEEDTEAM/TeleSeed.svg)](https://gitter.im/SEEDTEAM/TeleSeed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -491,8 +491,10 @@ For graphic designs.
 
 [aQa.ALi](https://github.com/Mr_AL_i) ([Telegram](https://telegram.me/Mr_AL_i))
 
-[DRAGON](https://github.com/Developer_001) ([Telegram](https://telegram.me/Developer_001))
+[.](https://github.com/) ([Telegram](https://telegram.me/))
+
+[.](https://github.com/) ([Telegram](https://telegram.me/))
 
 ### Our Telegram channels:
 
-Persian: [@SPIRAN_CHANNEL](https://telegram.me/SPIRAN_CHANNEL)
+Persian: [@TeleVigilant_Team](https://telegram.me/TeleVigilant_Team)
