@@ -260,14 +260,15 @@ function create_config( )
     },
     sudo_users = {95837751,78246181,115222449},--Sudo users
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Spiran_TG
+    about_text = [[🔰@TeleVigilant_Super🔰
 An advanced administration bot based on TG-CLI written in Lua
 
 https://github.com/SEEDTEAM/TeleSeed
 
 Admins
 @Mr_AL_i [Developer & Manager]
-@Developer_001 [Founder & Manager]
+.
+.
 
 Special thanks to
 awkward_potato
@@ -276,7 +277,7 @@ topkecleon
 Vamptacus
 
 Our channels
-@SPIRAN_CHANNEL [persian]
+🔰@TeleVigilant_Team🔰 [persian]
 
 Our website 
 UNKNOWN
@@ -367,7 +368,7 @@ FOLLOW US...
 SPIRAN TEAM😘
 ]],
     help_text = [[
-راهنمای دستورات اسپیران :
+راهنمای دستورات تله ویگیلانت :
 🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
 !kick [username|id]
 اخراج یوزرنیم موردنظر حتی با ریپلای
@@ -456,13 +457,13 @@ SPIRAN TEAM😘
  
 * فقط admins و sudo می‌توانند از  فرمان‌های setowner ، و اطلاعات يوزر موردنظر و دستورات خاص استفاده كنند.
 
-🔰Spiran_TG🔰@SPIRAN_CHANNEL
+🔰@TeleVigilant_Super🔰@TeleVigilant_Team
 FOLLOW US...
-SPIRAN TEAM😘
+TeleVigilant TEAM😘
 
 ]],
 	help_text_super =[[
-راهنمای دستورات سوپرگروه اسپیران:
+راهنمای دستورات سوپرگروه تله ویگیلانت :
 🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
 !info
 نمایش اطلاعات کلی در مورد SuperGroup
@@ -599,9 +600,9 @@ SPIRAN TEAM😘
 * فقط مديران و مالک می تواند از بلاک، ممنوعیت، رفع ممنوعیت، newlink(لينك جديد)، لینک، setphoto، setname، قفل، باز کردن قفل، setrules، setabout و تنظیمات دستورات استفاده كنند.
 ** فقط مالک می تواند از  اطلاعات يوزر ، setowner، ترویج(ترفيع)، تنزل رتبه، و ورود (تنظيم) دستورات استفاده كند.
 
-🔰Spiran_TG🔰@SPIRAN_CHANNEL
+🔰@TeleVigilant_Super🔰@TeleVigilant_Team
 FOLLOW US...
-SPIRAN TEAM😘
+TeleVigilant TEAM😘
 
 ]],
   }
