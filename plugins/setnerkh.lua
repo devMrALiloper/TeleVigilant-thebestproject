@@ -39,5 +39,6 @@ patterns ={
 run = run 
 }
 -- by @sudo1
--- channel: @specialteam_ch
--- GOOD luck :) 
+-- tnx to specialteam_ch
+-- @Mr_AL_i
+-- @TeleVigilant_Team
