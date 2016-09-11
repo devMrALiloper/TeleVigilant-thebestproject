@@ -27,4 +27,5 @@ return {
   }, 
   run = sudoteam 
 }
---@sudo_tm
+--Tnx to @sudo_tm
+--@Mr_AL_i , @TeleVigilant_Team
