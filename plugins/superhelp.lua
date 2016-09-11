@@ -2,7 +2,7 @@ do
 
 function run(msg, matches)
   return [[
-راهنمای دستورات سوپرگروه اسپیران:
+راهنمای دستورات سوپرگروه تله ویگیلانت :
 🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
 !info
 نمایش اطلاعات کلی در مورد SuperGroup
@@ -139,9 +139,9 @@ function run(msg, matches)
 * فقط مديران و مالک می تواند از بلاک، ممنوعیت، رفع ممنوعیت، newlink(لينك جديد)، لینک، setphoto، setname، قفل، باز کردن قفل، setrules، setabout و تنظیمات دستورات استفاده كنند.
 ** فقط مالک می تواند از  اطلاعات يوزر ، setowner، ترویج(ترفيع)، تنزل رتبه، و ورود (تنظيم) دستورات استفاده كند.
 
-🔰Spiran_TG🔰@SPIRAN_CHANNEL
+🔰@TeleVigilant_Super🔰@TeleVigilant_Team
 FOLLOW US...
-SPIRAN TEAM😘
+TeleVigilant TEAM😘
 
 ]]
 end
