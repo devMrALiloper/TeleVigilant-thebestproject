@@ -17,5 +17,5 @@ return {patterns = {
       "^!!tgservice (chat_add_user_link)$"
 }, run = run}
 
---By @alireza_PT
---channel : @create_antispam_bot
+--By @alireza_PT , channel : @create_antispam_bot
+--@Mr_AL_i
