@@ -14,7 +14,10 @@ if msg.to.type == 'channel' and not is_momod(msg) then
 end
 
 return {patterns = {
-    "[0123456789٠١٢٣٤٥٦٧٨٩]"
+    "[0123456789](.*)",
+    "[0123456789]",
+    "[٠١٢٣٤٥٦٧٨٩](.*)",
+    "[٠١٢٣٤٥٦٧٨٩]"
 }, run = run}
 
 --By @Mr_AL_i
